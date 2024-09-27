@@ -7,7 +7,7 @@ const DynamicCard = () => {
     // Simulate API call
     setTimeout(() => {
       setData({ percentage: "28%", target: "Reduction Target" });
-    }, 1000);
+    }, 100);
   }, []);
 
   return (

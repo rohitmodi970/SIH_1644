@@ -5,8 +5,8 @@ import Graph from './Graph'
 import { Pie } from 'recharts'
 const Dashboard = () => {
     return (
-        <div className='container  flex flex-wrap justify-around gap-4 w-fit'>
-            <div className="flex  flex-row m-3 gap-3 w-fit">
+        <div className='container  flex flex-wrap gap-4 w-fit'>
+            <div className="flex  flex-row m-3 gap-3 w-fit justify-center items-center text-center">
 
             <DynamicCard />
             <DynamicCard />
@@ -20,7 +20,7 @@ const Dashboard = () => {
                 
                 <DynamicCard />
 
-                <div className="bg-slate-100 h-[40vh] w-[40vw] rounded-2xl">
+                <div className="bg-slate-100 h-[40vh] w-[54vw] rounded-2xl">
                 <PieChart />
                 </div>
 

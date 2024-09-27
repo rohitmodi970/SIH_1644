@@ -1,5 +1,5 @@
 import React from 'react'
-// import Link from 'next/link'a
+import { NavLink } from 'react-router-dom'
 const Navbar = () => {
     const handleHover = (iconId, eventType) => {
         const icon = document.getElementById(iconId);
@@ -26,36 +26,38 @@ const Navbar = () => {
                             src="https://cdn.lordicon.com/cnpvyndp.json"
                             trigger="hover">
                         </lord-icon>
-                        <a href="#"
+                        <NavLink to="/"
                             className="ml-2 hover:font-bold"
                             onMouseEnter={() => handleHover('icon1', 'mouseenter')}
                             onMouseLeave={() => handleHover('icon1', 'mouseleave')}>
                             Home
-                        </a>
+                        </NavLink>
 
                         <lord-icon
                             id="icon2"
                             src="https://cdn.lordicon.com/yxczfiyc.json"
                             trigger="hover">
                         </lord-icon>
-                        <a href="#"
+                        <NavLink to="/about"
                             className="ml-2 hover:font-bold"
                             onMouseEnter={() => handleHover('icon2', 'mouseenter')}
                             onMouseLeave={() => handleHover('icon2', 'mouseleave')}>
                             About
-                        </a>
+                        </NavLink>
 
                         <lord-icon
                             id="icon3"
                             src="https://cdn.lordicon.com/rsvfayfn.json"
                             trigger="hover">
                         </lord-icon>
-                        <a href="#"
+                        <NavLink
+                            to="/contact"
                             className="ml-2 hover:font-bold"
                             onMouseEnter={() => handleHover('icon3', 'mouseenter')}
-                            onMouseLeave={() => handleHover('icon3', 'mouseleave')}>
+                            onMouseLeave={() => handleHover('icon3', 'mouseleave')}
+                        >
                             Contact
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
                 <div className="flex
@@ -66,10 +68,10 @@ const Navbar = () => {
                         src="https://cdn.lordicon.com/kkvxgpti.json"
                         trigger="hover">
                     </lord-icon>
-                    <input 
-                    onMouseEnter={() => handleHover('icon4', 'mouseenter')}
-                    onMouseLeave={() => handleHover('icon4', 'mouseleave')}
-                    className='rounded-full text-black text-center' type="text" placeholder='Search' />
+                    <input
+                        onMouseEnter={() => handleHover('icon4', 'mouseenter')}
+                        onMouseLeave={() => handleHover('icon4', 'mouseleave')}
+                        className='rounded-full text-black text-center' type="text" placeholder='Search' />
                 </div>
             </div>
         </nav>
