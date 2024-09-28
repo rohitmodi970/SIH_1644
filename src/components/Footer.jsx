@@ -40,6 +40,7 @@ const Footer = () => {
         </div>
         <p className="mt-4">Committed to a sustainable future. Let's reduce carbon emissions together!</p>
       </div>
+      
     </footer>
   );
 };
