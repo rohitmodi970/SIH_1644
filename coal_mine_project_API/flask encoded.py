@@ -28,8 +28,8 @@ def predict():
     predicted_ch4 = pipeline_ch4.predict(input_df[['depth', 'degree', 'coal_mined', 'coal_type', 'mine_type']])
     predicted_co2 = pipeline_co2.predict(input_df[['diesel_usage', 'electricity_usage', 'coal_used_as_fuel', 'vehicle_count']])
 
-    methane_to_co2_equivalence = 607707.57
-    total_carbon_footprints = predicted_co2[0] + methane_to_co2_equivalence
+    methane_to_co2_equivalence = predicted_ch4[0] * 12
+    total_carbon_footprints = predicted_co2[0] + methane_to_co2_equivalence + 0.0005 * (predicted_co2[0] + predicted_ch4[0])
 
     trees_required = total_carbon_footprints / 22
     area_covered = trees_required * 0.1
@@ -101,15 +101,6 @@ def predict():
     potential_elephants_equivalent = potential_reduction / elephant_weight_kg
     prediction_co2 = round(predicted_co2[0], 2)
     prediction_ch4 = round(predicted_ch4[0], 2)
-    report = (
-        f"The amount of CO2 predicted is {predicted_co2[0]:,.2f} kg, "
-        f"and the amount of CH4 predicted is {predicted_ch4[0]:,.2f} kg. "
-        f"The total carbon footprints are {total_carbon_footprints:,.2f} kg. "
-        f"To offset this, we would need approximately {trees_required:,.2f} trees, "
-        f"covering an area of {area_hectares:,.2f} hectares. "
-        f"The coal mined would produce {co2_from_coal:,.2f} kg of CO2 and "
-        f"{steam_from_coal:,.2f} tons of steam.\n\n"
-    )
 
     impact=(f"Now, let's look at the impact of these emissions:\n"
         f"Imagine that the total carbon footprints produced by the mine are equivalent to the weight of about "
@@ -155,12 +146,27 @@ def predict():
         f"{potential_reduction:,.2f} kg, which is equivalent to the weight of about {potential_elephants_equivalent:,.2f} elephants.\n"
     )
 
+    other_gases_emissions = total_carbon_footprints - (predicted_co2[0] + predicted_ch4[0])
+    trees_needed = (total_carbon_footprints / 22)
+    trees_area_in_hectares = (trees_needed * 0.1) / 10000
+
+    recommended_tree_plantation_areas = [
+        "https://www.google.com/maps?q=afforestation+area+1+India",
+        "https://www.google.com/maps?q=afforestation+area+2+India",
+        "https://www.google.com/maps?q=afforestation+area+3+India"
+    ]
+    
+
     return jsonify({
         'prediction_co2': prediction_co2,
         'prediction_ch4': prediction_ch4,
-        'report': report,
         'impact': impact,
-        'possible_solutions': possible_solutions
+        'possible_solutions': possible_solutions,
+        'trees_needed': trees_needed,
+        'trees_area_in_hectares': trees_area_in_hectares,
+        'recommended_tree_plantation_areas': recommended_tree_plantation_areas,
+        'total_carbon_footprints': total_carbon_footprints,
+        'other_gases_emissions': other_gases_emissions
     })
 
 if __name__ == '__main__':
