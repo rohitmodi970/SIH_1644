@@ -11,12 +11,12 @@ const Navbar = () => {
         <nav className='bg-green-500 text-balck sticky top-0'>
             <div className="mycontainer flex justify-between items-center py-5 px-4 h-14 ">
 
-                <div className="logo font-bold text-2xl">
+                <div className="logo font-bold text-2xl text-center flex justify-center items-center">
                     <span className="text-green-200">&lt;E</span>
                     <span>
                         -COAL
                     </span>
-                    <span className="text-green-500">/&gt;</span>
+                    <span className="text-green-900 text-3xl">/&gt;</span>
                 </div>
 
                 <ul>
@@ -26,7 +26,7 @@ const Navbar = () => {
                             src="https://cdn.lordicon.com/cnpvyndp.json"
                             trigger="hover">
                         </lord-icon>
-                        <NavLink to="/"
+                        <NavLink to="/home"
                             className="ml-2 hover:font-bold"
                             onMouseEnter={() => handleHover('icon1', 'mouseenter')}
                             onMouseLeave={() => handleHover('icon1', 'mouseleave')}>

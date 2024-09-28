@@ -13,6 +13,13 @@ const Footer = () => {
 
   return (
     <footer className="bg-green-900 text-white py-5 text-center mt-auto relative bottom-[-200px]">
+      <div className="logo font-bold text-2xl">
+                    <span className="text-green-200">&lt;E</span>
+                    <span>
+                        -COAL
+                    </span>
+                    <span className="text-black text-3xl">/&gt;</span>
+                </div>
       <div className="footer-content">
         <p>&copy; 2024 Coal Mine Carbon Footprint Tracker | All rights reserved.</p>
         <nav>

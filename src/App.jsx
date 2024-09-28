@@ -6,9 +6,11 @@ import ContactUs from './components/Contact';
 import About from './components/About';
 import FeedbackForm from './components/Faq';
 import Features from './components/Features';
-import Carboncalculator from './components/Carboncalculator';
+import Carboncalculator from './components/Safety';
 import Footer from './components/Footer';
 import Layout from './components/Layouts';
+import Carbonemission from './components/Carbonemission';
+import Home from './components/Home';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 function App() {
@@ -18,7 +20,13 @@ function App() {
     {
       path: '/',
       element: <>
-        <Navbar /> <Dashboard />
+        <Navbar /> <Home />
+      </>
+    },
+    {
+      path: '/home',
+      element: <>
+        <Navbar /> <Home />
       </>
     },
     {
@@ -52,6 +60,13 @@ function App() {
       path: '/carboncalculator',
       element: <>
         <Navbar /> <Carboncalculator />
+      </>
+    }
+    ,
+    {
+      path: '/carbonemission',
+      element: <>
+        <Navbar /> <Carbonemission />
       </>
     }
   ]);
