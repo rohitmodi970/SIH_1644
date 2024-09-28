@@ -8,7 +8,7 @@ const Navbar = () => {
         }
     };
     return (
-        <nav className='bg-green-400 text-balck sticky top-0'>
+        <nav className='bg-green-500 text-balck sticky top-0'>
             <div className="mycontainer flex justify-between items-center py-5 px-4 h-14 ">
 
                 <div className="logo font-bold text-2xl">
@@ -68,10 +68,14 @@ const Navbar = () => {
                         src="https://cdn.lordicon.com/kkvxgpti.json"
                         trigger="hover">
                     </lord-icon>
-                    <input
-                        onMouseEnter={() => handleHover('icon4', 'mouseenter')}
-                        onMouseLeave={() => handleHover('icon4', 'mouseleave')}
-                        className='rounded-full text-black text-center' type="text" placeholder='Search' />
+                    <NavLink
+                            to="/features"
+                            className="ml-2 hover:font-bold"
+                            onMouseEnter={() => handleHover('icon3', 'mouseenter')}
+                            onMouseLeave={() => handleHover('icon3', 'mouseleave')}
+                        >
+                            Features
+                        </NavLink>
                 </div>
             </div>
         </nav>

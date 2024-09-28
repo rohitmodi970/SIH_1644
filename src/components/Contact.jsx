@@ -118,6 +118,7 @@ const ContactUs = () => {
       <footer className="text-center text-gray-600 text-sm mt-6">
         <p>Thank you for reaching out! We value your input and will get back to you as soon as possible.</p>
       </footer>
+      <div className="fixed top-0 left-0 z-[-2] w-full h-full rotate-180 transform bg-green-100 bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
     </div>
   );
 };
