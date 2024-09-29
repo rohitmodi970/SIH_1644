@@ -52,9 +52,9 @@ def predict():
     panel_area = 1.6  
     total_panel_area = panels_needed * panel_area
 
-    afforestation_links = [
-        "https://www.google.com/maps?q=afforestation+area+1+India",
-        "https://www.google.com/maps?q=afforestation+area+2+India",
+    recommended_tree_plantation_areas = [
+        "https://maps.app.goo.gl/8j7SboCrF5rpCBc86",
+        "https://maps.app.goo.gl/tMRNUMc7TroTTX3o7",
         "https://www.google.com/maps?q=afforestation+area+3+India"
     ]
 
@@ -180,7 +180,7 @@ def predict():
         f"<li>Here are some recommended areas for afforestation:</li>"
         f"<ul>" +
         "".join(
-            f" <b><li> <a href='{link}'>{link}</a>  </li> </b> " for link in afforestation_links) + "</ul>"
+            f" <b><li> <a href='{link}'>{link}</a>  </li> </b> " for link in recommended_tree_plantation_areas) + "</ul>"
         f"<br>"
         f"<li>Focusing on nuclear power plants and the potential extraction of energy from plutonium can tremendously decrease our dependency on coal. Could significantly reduce dependency on coal, promoting a cleaner energy future.</li>"
         f"<br>"
@@ -199,7 +199,7 @@ def predict():
 
     other_gases_emissions = 0.0005*(predicted_co2[0] + predicted_ch4[0])
     trees_needed = (total_carbon_footprints / 22)
-    trees_area_in_hectares = (trees_needed * 0.1) / 10000
+    trees_area_in_hectares = (trees_needed * 0.1) / 9898.69
 
     recommended_tree_plantation_areas = [
         "https://maps.app.goo.gl/8j7SboCrF5rpCBc86",
