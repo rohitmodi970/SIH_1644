@@ -102,48 +102,62 @@ def predict():
     prediction_co2 = round(predicted_co2[0], 2)
     prediction_ch4 = round(predicted_ch4[0], 2)
 
-    impact=(f"Now, let's look at the impact of these emissions:\n"
-        f"Imagine that the total carbon footprints produced by the mine are equivalent to the weight of about "
-        f"{elephants_equivalent:,.2f} elephants. That's a lot of elephants!\n"
-        
-        f"As we consider the implications, it's essential to recognize that the **{total_carbon_footprints:,.2f} kg** of CO2 emitted "
+    impact = (
+        f"<h2>Impact of Emissions</h2>"
+        f"<p>Imagine that the total carbon footprints produced by the mine are equivalent to the weight of about "
+        f"<strong>{elephants_equivalent:,.2f}</strong> elephants. That's a lot of elephants!</p>"
+        f"<br>"
+        f"<p>These emissions are not just numbers; they have real-world consequences. For example, the CO2 emissions from coal mining can contribute to global warming, "
+        f"leading to more frequent and severe weather events like hurricanes, droughts, and heatwaves.</p>"
+        f"<br>"
+        f"<p>Moreover, methane emissions from coal mines can trap heat in the atmosphere, contributing to the greenhouse effect. "
+        f"Methane is a potent greenhouse gas, with a global warming potential 25 times greater than CO2 over a 100-year period.</p>"
+        f"<br>"
+        f"<p>It's crucial to consider the environmental impact of these emissions and explore ways to mitigate their effects. "
+        f"By implementing sustainable practices and reducing emissions, we can help protect our planet and create a cleaner, greener future for all.</p>"
+        f"<br>"
+        f"<p>As we consider the implications, it's essential to recognize that the <strong>{total_carbon_footprints:,.2f} kg</strong> of CO2 emitted "
         f"contributes to global warming by trapping heat in our atmosphere. Every ton of CO2 we emit raises global temperatures, "
-        f"creating a greenhouse effect that is like wrapping our planet in an increasingly thick blanket.\n"
-        
-        f"This warming leads to melting glaciers, rising sea levels, and extreme weather patterns. "
+        f"creating a greenhouse effect that is like wrapping our planet in an increasingly thick blanket.</p>"
+        f"<br>"
+        f"<p>This warming leads to melting glaciers, rising sea levels, and extreme weather patterns. "
         f"We are not just looking at numbers; we are witnessing changes that can affect our way of life, "
-        f"like hurricanes that become more powerful and droughts that turn fertile land into barren deserts.\n\n"
-        
-        f"The Bigger Picture:\n"
-        f"These figures paint a stark picture of the environmental challenges we face. The sheer volume of carbon emissions illustrates a critical need for action. "
-        f"If every coal mine operated similarly, the cumulative impact on our climate could be devastating, exacerbating global warming and threatening biodiversity.\n\n"
-        
-        f"Call to Action:\n"
-        f"We need to take immediate steps to transition to cleaner energy sources, reduce our dependence on coal, and invest in reforestation and sustainability efforts. "
+        f"like hurricanes that become more powerful and droughts that turn fertile land into barren deserts.</p>"
+        f"<br>"
+        f"<h3>The Bigger Picture</h3>"
+        f"<p>These figures paint a stark picture of the environmental challenges we face. The sheer volume of carbon emissions illustrates a critical need for action. "
+        f"If every coal mine operated similarly, the cumulative impact on our climate could be devastating, exacerbating global warming and threatening biodiversity.</p>"
+        f"<br>"
+        f"<h3>Call to Action</h3>"
+        f"<p>We need to take immediate steps to transition to cleaner energy sources, reduce our dependence on coal, and invest in reforestation and sustainability efforts. "
         f"Each tree planted can absorb approximately 22 kg of CO2 per year, helping to mitigate the effects of carbon emissions. "
-        f"Let’s work together to protect our planet for future generations!\n\n")
+        f"Let’s work together to protect our planet for future generations!</p>"
+    )
         
-    possible_solutions=(f"Possible Solutions:\n"
-        f"1. Utilizing solar panels can significantly reduce coal usage. By reducing coal requirements by 10%, "
-        f"it would take appsroximately {panels_needed:,.2f} solar panels, covering an area of {total_panel_area:,.2f} square meters.\n"
-        
-        f"2. Capture CO₂ Emissions: Invest in carbon capture and storage (CCS) technologies that capture CO₂ emissions from machinery and processes before they enter the atmosphere, "
-        f"potentially offsetting about {carbon_capture_reduction:,.2f} kg of carbon footprints.\n"
-        
-        f"3. Here are some recommended areas for afforestation:\n" + "\n".join(afforestation_links) + "\n"
-        
-        f"4. Focusing on nuclear power plants and the potential extraction of energy from plutonium can tremendously decrease our dependency on coal. Could significantly reduce dependency on coal, promoting a cleaner energy future.\n"
-        
-        f"5. Given the good coal reserves, modernization of the mine to use inclined systems and conveyor belts can lead to better efficiency for coal mining\n"
-        
-        f"6. Transitioning to biofuels can lead to a reduction of {biofuel_co2_reduction:,.2f} kg CO2 emissions if using biofuels, or "
-        f"{ethanol_co2_reduction:,.2f} kg CO2 emissions if using ethanol as an alternative to diesel.\n"
-        
-        f"7. {methane_recommendation}\n\n"
-        
-        f"**Future Impact:**\n"
-        f"If 50% of these proposed solutions are followed, the potential reduction in carbon footprints would be approximately "
-        f"{potential_reduction:,.2f} kg, which is equivalent to the weight of about {potential_elephants_equivalent:,.2f} elephants.\n"
+    possible_solutions = (
+        f"<h2>Possible Solutions</h2>"
+        f"<ol>"
+        f"<li>Utilizing solar panels can significantly reduce coal usage. By reducing coal requirements by 10%, "
+        f"it would take approximately <strong>{panels_needed:,.2f}</strong> solar panels, covering an area of <strong>{total_panel_area:,.2f}</strong> square meters.</li>"
+        f"<br>"
+        f"<li>Capture CO₂ Emissions: Invest in carbon capture and storage (CCS) technologies that capture CO₂ emissions from machinery and processes before they enter the atmosphere, "
+        f"potentially offsetting about <strong>{carbon_capture_reduction:,.2f}</strong> kg of carbon footprints.</li>"
+        f"<br>"
+        f"<li>Here are some recommended areas for afforestation:</li>"
+        f"<ul>" + "".join(f"<li><a href='{link}'>{link}</a></li>" for link in afforestation_links) + "</ul>"
+        f"<br>"
+        f"<li>Focusing on nuclear power plants and the potential extraction of energy from plutonium can tremendously decrease our dependency on coal. Could significantly reduce dependency on coal, promoting a cleaner energy future.</li>"
+        f"<br>"
+        f"<li>Given the good coal reserves, modernization of the mine to use inclined systems and conveyor belts can lead to better efficiency for coal mining.</li>"
+        f"<br>"
+        f"<li>Transitioning to biofuels can lead to a reduction of <strong>{biofuel_co2_reduction:,.2f}</strong> kg CO2 emissions if using biofuels, or "
+        f"<strong>{ethanol_co2_reduction:,.2f}</strong> kg CO2 emissions if using ethanol as an alternative to diesel.</li>"
+        f"<br>"
+        f"<li>{methane_recommendation}</li>"
+        f"</ol>"
+        f"<h3>Future Impact</h3>"
+        f"<p>If 50% of these proposed solutions are followed, the potential reduction in carbon footprints would be approximately "
+        f"<strong>{potential_reduction:,.2f}</strong> kg, which is equivalent to the weight of about <strong>{potential_elephants_equivalent:,.2f}</strong> elephants.</p>"
     )
 
     other_gases_emissions = total_carbon_footprints - (predicted_co2[0] + predicted_ch4[0])
@@ -156,7 +170,6 @@ def predict():
         "https://www.google.com/maps?q=afforestation+area+3+India"
     ]
     
-
     return jsonify({
         'prediction_co2': prediction_co2,
         'prediction_ch4': prediction_ch4,
