@@ -2,21 +2,14 @@ import joblib
 from flask import Flask, request, jsonify
 import pandas as pd
 from flask_cors import CORS 
-import os
-
-# Get the current directory of the file
-current_directory = os.path.dirname(__file__)
-
-# Build the path dynamically for the CH4 and CO2 model files
-model_path_ch4 = os.path.join(current_directory, 'backend', 'model', 'pipeline_ch4_model.pkl')
-model_path_co2 = os.path.join(current_directory, 'backend', 'model', 'pipeline_co2_model.pkl')
 
 app = Flask(__name__)
 CORS(app)
 
-# Load the models using the dynamic paths
-pipeline_ch4 = joblib.load(model_path_ch4)
-pipeline_co2 = joblib.load(model_path_co2)
+pipeline_ch4 = joblib.load(
+    r'D:\\coal\\e-coal\\backend\\model\\pipeline_ch4_model.pkl')
+pipeline_co2 = joblib.load(
+    r'D:\\coal\\e-coal\\backend\\model\\pipeline_co2_model.pkl')
 
 @app.route('/predict', methods=['POST'])
 def predict():
