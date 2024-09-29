@@ -42,7 +42,7 @@ const Features = () => {
                         <p className='font-sans text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos dicta laborum labore ad autem ullam asperiores tenetur dolorum numquam veritatis?</p>
                         <NavLink
                         className='bg-green-700 text-white text-xl p-2 px-7 relative bottom-2 rounded-full hover:font-medium'
-                            to="/contact">
+                            to="/moreFeatures">
                             More
                         </NavLink>
                     </div>

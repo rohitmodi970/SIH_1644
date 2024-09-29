@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 const Navbar = () => {
 
-    
+
 
     const handleHover = (iconId, eventType) => {
         const icon = document.getElementById(iconId);
@@ -12,8 +12,8 @@ const Navbar = () => {
         }
     };
     return (
-        <nav className='bg-green-500 text-balck sticky top-0 w-screen'>
-            <div className="mycontainer flex justify-between items-center py-5 px-4 h-auto flex-wrap ">
+        <nav className='bg-green-500 text-balck sticky top-0 w-100% z-10 '>
+            <div className="mycontainer flex justify-between items-center py-5 px-4 h-auto flex-wrap  ">
 
                 <div className="logo font-bold text-2xl text-center flex justify-center items-center">
                     <span className="text-green-200">&lt;E</span>
@@ -24,14 +24,14 @@ const Navbar = () => {
                 </div>
 
                 <ul>
-                    <li className='flex gap-5 justify-center items-center'>
+                    <li className='flex gap-5 justify-center items-center font-bold'>
                         <lord-icon
                             id="icon1"
                             src="https://cdn.lordicon.com/cnpvyndp.json"
                             trigger="hover">
                         </lord-icon>
                         <NavLink to="/home"
-                            className="ml-2 hover:font-bold"
+                            className="ml-2 hover:font-extrabold"
                             onMouseEnter={() => handleHover('icon1', 'mouseenter')}
                             onMouseLeave={() => handleHover('icon1', 'mouseleave')}>
                             Home
@@ -43,7 +43,7 @@ const Navbar = () => {
                             trigger="hover">
                         </lord-icon>
                         <NavLink to="/about"
-                            className="ml-2 hover:font-bold"
+                            className="ml-2 hover:font-extrabold"
                             onMouseEnter={() => handleHover('icon2', 'mouseenter')}
                             onMouseLeave={() => handleHover('icon2', 'mouseleave')}>
                             About
@@ -56,7 +56,7 @@ const Navbar = () => {
                         </lord-icon>
                         <NavLink
                             to="/contact"
-                            className="ml-2 hover:font-bold"
+                            className="ml-2 hover:font-extrabold"
                             onMouseEnter={() => handleHover('icon3', 'mouseenter')}
                             onMouseLeave={() => handleHover('icon3', 'mouseleave')}
                         >
@@ -65,7 +65,7 @@ const Navbar = () => {
                     </li>
                 </ul>
                 <div className="flex
-                justify-center gap-2 ">
+                justify-center gap-4 items-center font-bold">
                     <lord-icon
                         // style = {{width: '40px', height: '40px', color: 'white'}}
                         id="icon4"
@@ -74,18 +74,24 @@ const Navbar = () => {
                     </lord-icon>
                     <NavLink
                         to="/features"
-                        className="ml-2 hover:font-bold"
+                        className="ml-2 hover:font-extrabold"
                         onMouseEnter={() => handleHover('icon3', 'mouseenter')}
                         onMouseLeave={() => handleHover('icon3', 'mouseleave')}
                     >
                         Features
                     </NavLink>
-                    
+                    <lord-icon
+                    id="icon5"
+                        src="https://cdn.lordicon.com/hrjifpbq.json"
+                        trigger="hover"
+                        >
+                    </lord-icon>
+
                     <NavLink
                         to="/login"
-                        className="ml-2 hover:font-bold"
-                        onMouseEnter={() => handleHover('icon3', 'mouseenter')}
-                        onMouseLeave={() => handleHover('icon3', 'mouseleave')}
+                        className=" bg-white text-green-900 px-5 py-1 m-1 ml-2 rounded-lg hover:font-extrabold"
+                        onMouseEnter={() => handleHover('icon5', 'mouseenter')}
+                        onMouseLeave={() => handleHover('icon5', 'mouseleave')}
                     >
                         Login
                     </NavLink>

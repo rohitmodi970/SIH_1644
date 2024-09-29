@@ -13,6 +13,7 @@ import Carbonemission from './components/Carbonemission';
 import Assist from './components/Assist';
 import Home from './components/Home';
 import Login from './components/Login';
+import MoreFeatures from './components/MoreFeatures';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -77,6 +78,13 @@ function App() {
       path: '/login',
       element: <>
       <Navbar /> <Login />
+      </>
+    }
+    ,
+    {
+      path: '/moreFeatures',
+      element: <>
+      <Navbar /> <MoreFeatures />
       </>
     }
   ]);
