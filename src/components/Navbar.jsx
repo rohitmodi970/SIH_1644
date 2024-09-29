@@ -61,7 +61,7 @@ const Navbar = () => {
                     </li>
                 </ul>
                 <div className="flex
-                justify-center ">
+                justify-center gap-2 ">
                     <lord-icon
                         // style = {{width: '40px', height: '40px', color: 'white'}}
                         id="icon4"
@@ -69,13 +69,22 @@ const Navbar = () => {
                         trigger="hover">
                     </lord-icon>
                     <NavLink
-                            to="/features"
-                            className="ml-2 hover:font-bold"
-                            onMouseEnter={() => handleHover('icon3', 'mouseenter')}
-                            onMouseLeave={() => handleHover('icon3', 'mouseleave')}
-                        >
-                            Features
-                        </NavLink>
+                        to="/features"
+                        className="ml-2 hover:font-bold"
+                        onMouseEnter={() => handleHover('icon3', 'mouseenter')}
+                        onMouseLeave={() => handleHover('icon3', 'mouseleave')}
+                    >
+                        Features
+                    </NavLink>
+                    
+                    <NavLink
+                        to="/login"
+                        className="ml-2 hover:font-bold"
+                        onMouseEnter={() => handleHover('icon3', 'mouseenter')}
+                        onMouseLeave={() => handleHover('icon3', 'mouseleave')}
+                    >
+                        Login
+                    </NavLink>
                 </div>
             </div>
         </nav>

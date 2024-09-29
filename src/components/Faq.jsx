@@ -39,6 +39,7 @@ const FeedbackForm = () => {
                   value={star}
                   className="hidden"
                   onChange={handleRatingChange}
+                  required
                 />
               </label>
             ))}
@@ -61,6 +62,7 @@ const FeedbackForm = () => {
           <textarea
             className="w-full h-28 p-3 border border-gray-300 rounded-lg resize-none focus:border-green-500 focus:ring-green-500 transition mb-4"
             placeholder="Other suggestions..."
+            required
           />
 
           <button

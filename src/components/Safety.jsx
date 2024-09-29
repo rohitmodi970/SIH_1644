@@ -71,6 +71,7 @@ const Safety = () => {
             onChange={handleInputChange}
             className="border p-2 rounded-lg w-full"
             placeholder="Enter RCMD"
+            required
           />
         </div>
         <div className="w-full">
@@ -82,6 +83,7 @@ const Safety = () => {
             onChange={handleInputChange}
             className="border p-2 rounded-lg w-full"
             placeholder="Enter Silica"
+            required
           />
         </div>
         <div className="w-full">
@@ -93,6 +95,7 @@ const Safety = () => {
             onChange={handleInputChange}
             className="border p-2 rounded-lg w-full"
             placeholder="Enter CO (PPM)"
+            required
           />
         </div>
         <div className="w-full">
@@ -104,6 +107,7 @@ const Safety = () => {
             onChange={handleInputChange}
             className="border p-2 rounded-lg w-full"
             placeholder="Enter CH4 (LEL)"
+            required
           />
         </div>
         <button

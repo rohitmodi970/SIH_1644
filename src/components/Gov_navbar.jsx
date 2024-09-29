@@ -18,11 +18,11 @@ const Gov_navbar = () => {
                             </div>
                         </div>
                         
-                            <img className='max-xl:hidden' src="public/images/cmsms.png" alt="" />
-                            <img className='max-xl:hidden' src="public/images/pmgatisakti.png" alt="" />
-                            <img className='max-xl:hidden' src="public/images/coalblock1.jpeg" alt="" />
-                            <img className='max-xl:hidden' src="public/images/wtsa_logo.png" alt="" />
-                            <img className='max-xl:hidden' src="public/images/swach-bharat.png" alt="" />
+                            <img className='max-xl:hidden' src="/images/cmsms.png" alt="cmsms" />
+                            <img className='max-xl:hidden' src="/images/pmgatisakti.png" alt="pmgatisakti" />
+                            <img className='max-xl:hidden' src="/images/coalblock1.jpeg" alt="coalblock1" />
+                            <img className='max-xl:hidden' src="/images/wtsa_logo.png" alt="wtsa_logo" />
+                            <img className='max-xl:hidden' src="/images/swach-bharat.png" alt="swach-bharat" />
                         
                     </li>
                 </ul>
