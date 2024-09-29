@@ -14,7 +14,7 @@ const Features = () => {
                 <div className="text-5xl font-bold text-green-500">Our Features & Services.</div>
                 <div className="container flex gap-10 justify-center py-10 max-lg:flex-col">
                     <div className="w-auto h-auto bg-white rounded-2xl flex flex-col  items-center text-center gap-4">
-                        <img className='w-60 top-0 h-80' src="public\images\f1.jpg" alt="" />
+                        <img className='w-60 top-0 h-80' src="https://media.istockphoto.com/id/1225779146/vector/coal-mine-engineers-controlling-heavy-hydraulic-machines.jpg?s=612x612&w=0&k=20&c=8vkdCUQLG4Xvzo9pdjmpimTgsmp0ETNxADRh8NQIN2U=" alt="" />
                         <h1 className='font-bold text-green-600 text-2xl'>Safety & fire risk assessment</h1>
                         <p className='font-sans text-xl'>The API monitors coal mine safety by tracking carbon monoxide, methane, and dust levels, evaluating risks, issuing evacuation alerts, and detecting health issues like Black lung disease and silicosis from high dust levels.</p>
                         <NavLink
@@ -37,7 +37,7 @@ const Features = () => {
                         </NavLink>
                     </div>
                     <div className="w-auto h-auto bg-white rounded-2xl flex flex-col  items-center text-center gap-4">
-                        <img className='w-60 top-0 h-80' src="public\images\f3.jpg" alt="" />
+                        <img className='w-60 top-0 h-80' src="https://img.freepik.com/premium-vector/graph-with-decrease-report-diagram-with-recession-bankruptcy-progresstration_186380-1854.jpg?semt=ais_hybrid" alt="" />
                         <h1 className='font-bold text-green-600 text-2xl'>More Features & Services</h1>
                         <p className='font-sans text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos dicta laborum labore ad autem ullam asperiores tenetur dolorum numquam veritatis?</p>
                         <NavLink
