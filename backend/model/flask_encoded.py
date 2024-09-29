@@ -7,9 +7,9 @@ app = Flask(__name__)
 CORS(app)
 
 pipeline_ch4 = joblib.load(
-    r'D:\\coal\\e-coal\\backend\\model\\pipeline_ch4_model.pkl')
+    r'backend\\model\\pipeline_ch4_model.pkl')
 pipeline_co2 = joblib.load(
-    r'D:\\coal\\e-coal\\backend\\model\\pipeline_co2_model.pkl')
+    r'backend\\model\\pipeline_co2_model.pkl')
 
 @app.route('/predict', methods=['POST'])
 def predict():

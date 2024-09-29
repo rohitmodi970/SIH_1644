@@ -1,4 +1,3 @@
-// ghg-frontend/src/App.js
 import React, { useEffect, useState } from 'react';
 import { Line, Pie } from 'react-chartjs-2';
 import 'chart.js/auto'; // Automatically register Chart.js components
