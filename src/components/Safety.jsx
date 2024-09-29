@@ -23,7 +23,7 @@ const Safety = () => {
     setLoading(true);
     setError('');
 
-    fetch('https://sih-1644-2.onrender.com/monitor', {
+    fetch('https://sih-1644-5.onrender.com/monitor', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
