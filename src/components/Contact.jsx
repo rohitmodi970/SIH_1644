@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom'; // Import NavLink
+import { useEffect } from 'react';
 
 const ContactUs = () => {
+  useEffect(() => {
+    document.title = "Contact Us";
+  }, []);
   const [formData, setFormData] = useState({
     name: '',
     email: '',

@@ -5,7 +5,7 @@ const Gov_navbar = () => {
         <>
             
 
-            <div className="flex w-full m-2 px-10 justify-evenly max-lg:hidden">
+            <div className="flex w-full  px-10 justify-evenly max-lg:hidden p-2">
                 <ul>
                     <li className='flex  gap-12'>
                         <div className="flex ">

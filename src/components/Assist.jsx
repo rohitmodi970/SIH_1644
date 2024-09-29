@@ -62,9 +62,8 @@ const Assist = () => {
                         {messages.map((message, index) => (
                             <div
                                 key={index}
-                                className={`p-3 rounded-lg max-w-xs ${
-                                    message.sender === 'user' ? 'bg-blue-200 self-end' : 'bg-gray-200 self-start'
-                                }`}
+                                className={`p-3 rounded-lg max-w-xs ${message.sender === 'user' ? 'bg-blue-200 self-end' : 'bg-gray-200 self-start'
+                                    }`}
                             >
                                 {message.text}
                             </div>

@@ -3,10 +3,10 @@ import Card from './Card';
 
 const Safety = () => {
   const [formData, setFormData] = useState({
-    rcmd: 2.0,
-    silica: 0.1,
-    co_ppm: 120,
-    ch4_lel: 13,
+    rcmd: '',
+    silica: '',
+    co_ppm: '',
+    ch4_lel: '',
   });
 
   const [alerts, setAlerts] = useState([]);
@@ -23,7 +23,7 @@ const Safety = () => {
     setLoading(true);
     setError('');
 
-    fetch('http://localhost:3000/monitor', {
+    fetch('https://sih-1644-5.onrender.com/monitor', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
