@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Home - E-Coal";
+  }, []);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentCard, setCurrentCard] = useState(0);
 

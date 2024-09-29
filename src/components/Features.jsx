@@ -1,14 +1,18 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const Features = () => {
+    useEffect(() => {
+        document.title = "Features";
+      }, []);
     return (
         <>
             <div className="flex justify-center items-center flex-col">
 
                 <div className='text-green-700 text-3xl py-10'>F E A T U R E S</div>
                 <div className="text-5xl font-bold text-green-500">Our Features & Services.</div>
-                <div className="container flex gap-10 justify-center py-10 ">
+                <div className="container flex gap-10 justify-center py-10 max-lg:flex-col">
                     <div className="w-auto h-auto bg-white rounded-2xl flex flex-col  items-center text-center gap-4">
                         <img className='w-60 top-0 h-80' src="https://images01.nicepage.com/c461c07a441a5d220e8feb1a/a17abde8d83650a582a28432/users-with-speech-bubbles-vector_53876-82250.jpg" alt="" />
                         <h1 className='font-bold text-green-600 text-2xl'>Safety & fire risk assessment</h1>

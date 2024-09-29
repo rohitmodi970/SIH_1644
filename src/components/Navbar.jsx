@@ -1,6 +1,10 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 const Navbar = () => {
+
+    
+
     const handleHover = (iconId, eventType) => {
         const icon = document.getElementById(iconId);
         if (icon) {
@@ -8,8 +12,8 @@ const Navbar = () => {
         }
     };
     return (
-        <nav className='bg-green-500 text-balck sticky top-0'>
-            <div className="mycontainer flex justify-between items-center py-5 px-4 h-14 ">
+        <nav className='bg-green-500 text-balck sticky top-0 w-screen'>
+            <div className="mycontainer flex justify-between items-center py-5 px-4 h-auto flex-wrap ">
 
                 <div className="logo font-bold text-2xl text-center flex justify-center items-center">
                     <span className="text-green-200">&lt;E</span>

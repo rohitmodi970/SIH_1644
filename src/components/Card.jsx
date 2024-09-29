@@ -1,17 +1,3 @@
-
-
-// import React from "react";
-
-// const Card = ({ title, content }) => {
-//   return (
-//     <div className="flex flex-row  bg-slate-300 h-auto p-4 w-[20vw] rounded-2xl text-center justify-center">
-//       <h3 className="text-lg font-semibold text-gray-700">{title}</h3>
-//       <p className="text-md text-gray-600 mt-2">{content}</p>
-//     </div>
-//   );
-// };
-
-// export default Card;
 import React from "react";
 
 const Card = ({ title, content, preventiveMeasures, bgColor }) => {
