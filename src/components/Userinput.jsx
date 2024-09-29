@@ -4,15 +4,15 @@ import Button from '@mui/material/Button';
 
 const Userinput = ({ onSubmit }) => {
     const [formData, setFormData] = useState({
-        depth: '156',
-        degree: '1',
-        coal_mined: '441480',
-        coal_type: 'Peat',
-        mine_type: 'open-cast',
-        diesel_usage: '79465',
-        electricity_usage: '162710',
-        coal_used_as_fuel: '152',
-        vehicle_count: '22'
+        depth: '',
+        degree: '',
+        coal_mined: '',
+        coal_type: '',
+        mine_type: '',
+        diesel_usage: '',
+        electricity_usage: '',
+        coal_used_as_fuel: '',
+        vehicle_count: ''
     });
 
     // Handle input change and update state
