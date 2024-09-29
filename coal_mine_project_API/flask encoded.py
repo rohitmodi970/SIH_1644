@@ -28,13 +28,16 @@ def predict():
     predicted_ch4 = pipeline_ch4.predict(input_df[['depth', 'degree', 'coal_mined', 'coal_type', 'mine_type']])
     predicted_co2 = pipeline_co2.predict(input_df[['diesel_usage', 'electricity_usage', 'coal_used_as_fuel', 'vehicle_count']])
 
+    # Calculate total carbon footprints
     methane_to_co2_equivalence = predicted_ch4[0] * 12
-    total_carbon_footprints = predicted_co2[0] + methane_to_co2_equivalence + 0.0005 * (predicted_co2[0] + predicted_ch4[0])
+    total_carbon_footprints = predicted_co2[0] + methane_to_co2_equivalence
 
-    trees_required = total_carbon_footprints / 22
+    # Calculate trees required and area covered
+    trees_required = total_carbon_footprints / 15
     area_covered = trees_required * 0.1
-    area_hectares = area_covered / 10000
+    area_hectares = area_covered / 9882
 
+    # Other calculations
     coal_amount = data['coal_mined']
     co2_from_coal = coal_amount * 2800
     steam_from_coal = coal_amount * 6.5
@@ -49,8 +52,8 @@ def predict():
     total_panel_area = panels_needed * panel_area
 
     afforestation_links = [
-        "https://www.google.com/maps?q=afforestation+area+1+India",
-        "https://www.google.com/maps?q=afforestation+area+2+India",
+        "https://maps.app.goo.gl/tMRNUMc7TroTTX3o7",
+        "https://maps.app.goo.gl/8j7SboCrF5rpCBc86",
         "https://www.google.com/maps?q=afforestation+area+3+India"
     ]
 
@@ -88,7 +91,7 @@ def predict():
 
     methane_recommendation = (
         f"Implementing a methane storage system to trap and use 15% of emitted methane could reduce carbon footprints by approximately "
-        f"{methane_co2_equivalence:,.2f} kg."
+        f"{0.15*(methane_co2_equivalence):,.2f} kg."
     )
 
     potential_reduction = (
@@ -165,8 +168,8 @@ def predict():
     trees_area_in_hectares = (trees_needed * 0.1) / 10000
 
     recommended_tree_plantation_areas = [
-        "https://www.google.com/maps?q=afforestation+area+1+India",
-        "https://www.google.com/maps?q=afforestation+area+2+India",
+        "https://maps.app.goo.gl/8j7SboCrF5rpCBc86",
+        "https://maps.app.goo.gl/tMRNUMc7TroTTX3o7",
         "https://www.google.com/maps?q=afforestation+area+3+India"
     ]
     

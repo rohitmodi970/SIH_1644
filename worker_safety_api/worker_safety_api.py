@@ -14,7 +14,7 @@ def monitor():
     alerts = []
     alert_color = "green" 
 
-    if rcmd > 1.5:
+    if rcmd > 1.5: 
         alerts.append({
             'safety_message': (
                 "<strong>CRITICAL HEALTH ALERT FOR RCMD LEVELS:</strong> RCMD levels are above the safety thresholds. Immediate action is required to limit exposure.<br>"

@@ -7,9 +7,9 @@ app = Flask(__name__)
 CORS(app)
 
 pipeline_ch4 = joblib.load(
-    r'D:\\coal\\e-coal\\backend\\model\\pipeline_ch4_model.pkl')
+    r'D:\\github_coal_mine\\SIH_1644\\backend\\model\\pipeline_ch4_model.pkl')
 pipeline_co2 = joblib.load(
-    r'D:\\coal\\e-coal\\backend\\model\\pipeline_co2_model.pkl')
+    r'D:\\github_coal_mine\\SIH_1644\\backend\\model\\pipeline_co2_model.pkl')
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -202,8 +202,8 @@ def predict():
     trees_area_in_hectares = (trees_needed * 0.1) / 10000
 
     recommended_tree_plantation_areas = [
-        "https://www.google.com/maps?q=afforestation+area+1+India",
-        "https://www.google.com/maps?q=afforestation+area+2+India",
+        "https://maps.app.goo.gl/8j7SboCrF5rpCBc86",
+        "https://maps.app.goo.gl/tMRNUMc7TroTTX3o7",
         "https://www.google.com/maps?q=afforestation+area+3+India"
     ]
     
