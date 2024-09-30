@@ -1,5 +1,4 @@
 import './App.css';
-import Dashboard from './components/Dashboard';
 import Gov_navbar from './components/Gov_navbar';
 import Navbar from './components/Navbar';
 import ContactUs from './components/Contact';

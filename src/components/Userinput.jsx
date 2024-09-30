@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 const Userinput = ({ onSubmit }) => {
     const [formData, setFormData] = useState({
+        mine_type: '',
+        coal_type: '',
         depth: '',
         degree: '',
         coal_mined: '',
-        coal_type: '',
-        mine_type: '',
         diesel_usage: '',
         electricity_usage: '',
         coal_used_as_fuel: '',
@@ -18,18 +20,16 @@ const Userinput = ({ onSubmit }) => {
     // Handle input change and update state
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        // Check if the field is one of the numeric inputs
         const isNumericField = ['depth', 'degree', 'coal_mined', 'diesel_usage', 'electricity_usage', 'coal_used_as_fuel', 'vehicle_count'].includes(name);
         setFormData({
             ...formData,
-            [name]: isNumericField ? value.replace(/\D/g, '') : value // Allow only digits for numeric fields
+            [name]: isNumericField ? value.replace(/\D/g, '') : value
         });
     };
 
     // Handle form submission
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent the default form submission
-        // Convert numeric fields to integers
+        e.preventDefault();
         const dataToSubmit = {
             ...formData,
             depth: parseInt(formData.depth, 10) || 0,
@@ -40,25 +40,74 @@ const Userinput = ({ onSubmit }) => {
             coal_used_as_fuel: parseInt(formData.coal_used_as_fuel, 10) || 0,
             vehicle_count: parseInt(formData.vehicle_count, 10) || 0
         };
-        onSubmit(dataToSubmit); // Pass form data to the parent component
+        onSubmit(dataToSubmit);
     };
 
     return (
-        <>
-            <div className="flex justify-center items-center py-36 ">
-                <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-lg w-1/2">
-                    <h2 className="text-2xl mb-4 font-semibold">Enter Coal Mining Data</h2>
+        <div className="flex justify-center items-center py-36">
+            <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-lg w-1/2">
+                <h2 className="text-2xl mb-4 font-semibold">Enter Coal Mining Data</h2>
 
-                    {Object.keys(formData).map((key) => (
-                        <div key={key} className="mb-4">
+                {Object.keys(formData).map((key) => (
+                    <div key={key} className="mb-4">
+                        {key === 'coal_type' ? (
+                            <Select
+                                label="Coal Type"
+                                name="coal_type"
+                                value={formData.coal_type}
+                                onChange={handleInputChange}
+                                displayEmpty
+                                fullWidth
+                                required
+                            >
+                                <MenuItem value="" disabled>Select Coal Type</MenuItem>
+                                <MenuItem value="text">Anthracite</MenuItem>
+                                <MenuItem value="text">Peat</MenuItem>
+                                <MenuItem value="text">Sub-bituminous A</MenuItem>
+                                <MenuItem value="text">Sub-bituminous B</MenuItem>
+                                <MenuItem value="text">Sub-bituminous C</MenuItem>
+                                <MenuItem value="text">Bituminous A</MenuItem>
+                                <MenuItem value="text">Bituminous B</MenuItem>
+                                <MenuItem value="text">Bituminous C</MenuItem>
+                                <MenuItem value="text">Lignite</MenuItem>
+                            </Select>
+                        ) : key === 'mine_type' ? (
+                            <Select
+                                className=''
+                                label="Mine Type"
+                                name="mine_type"
+                                value={formData.mine_type}
+                                onChange={handleInputChange}
+                                displayEmpty
+                                fullWidth
+                                required
+                            >
+                                <MenuItem value="" disabled>Select Mine Type</MenuItem>
+                                <MenuItem value="text">open-cast</MenuItem>
+                                <MenuItem value="text">underground</MenuItem>
+                            </Select>
+                        ) : (
+                            <TextField
+                                id="outlined-basic"
+                                label={key}
+                                variant="outlined"
+                                type={['coal_type', 'mine_type'].includes(key) ? 'text' : 'number'}
+                                placeholder='Enter'
+                                name={key}
+                                value={formData[key]}
+                                onChange={handleInputChange}
+                                required
+                                fullWidth
+                            />
+                        )}
+                    </div>
+                ))}
 
-                            <TextField id="outlined-basic" label={key} variant="outlined" type={['coal_type', 'mine_type'].includes(key) ? 'text' : 'number'} name={key} value={formData[key]} onChange={handleInputChange} required />
-                        </div>
-                    ))}
-                    <Button  type="submit"  variant="contained" color="success" > Submit </Button>
-                </form>
-            </div>
-        </>
+                <Button type="submit" variant="contained" color="success">
+                    Submit
+                </Button>
+            </form>
+        </div>
     );
 };
 
