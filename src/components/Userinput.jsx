@@ -82,7 +82,7 @@ const Userinput = ({ onSubmit }) => {
                                 required
                             >
                                 <MenuItem value="" disabled>Select Mine Type</MenuItem>
-                                <MenuItem value="open-cast">Open-cast</MenuItem>
+                                <MenuItem value="open-cast">open-cast</MenuItem>
                                 <MenuItem value="underground">Underground</MenuItem>
                             </Select>
                         ) : (
