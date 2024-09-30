@@ -61,15 +61,15 @@ const Userinput = ({ onSubmit }) => {
                                 required
                             >
                                 <MenuItem value="" disabled>Select Coal Type</MenuItem>
-                                <MenuItem value="text">Anthracite</MenuItem>
-                                <MenuItem value="text">Peat</MenuItem>
-                                <MenuItem value="text">Sub-bituminous A</MenuItem>
-                                <MenuItem value="text">Sub-bituminous B</MenuItem>
-                                <MenuItem value="text">Sub-bituminous C</MenuItem>
-                                <MenuItem value="text">Bituminous A</MenuItem>
-                                <MenuItem value="text">Bituminous B</MenuItem>
-                                <MenuItem value="text">Bituminous C</MenuItem>
-                                <MenuItem value="text">Lignite</MenuItem>
+                                <MenuItem value="Anthracite">Anthracite</MenuItem>
+                                <MenuItem value="Bituminous">Peat</MenuItem>
+                                <MenuItem value="Sub-bituminous A">Sub-bituminous A</MenuItem>
+                                <MenuItem value="Sub-bituminous B">Sub-bituminous B</MenuItem>
+                                <MenuItem value="Sub-bituminous C">Sub-bituminous C</MenuItem>
+                                <MenuItem value="Sub-bituminous A">Bituminous A</MenuItem>
+                                <MenuItem value="Sub-bituminous B">Bituminous B</MenuItem>
+                                <MenuItem value="Sub-bituminous C">Bituminous C</MenuItem>
+                                <MenuItem value="Lignite">Lignite</MenuItem>
                             </Select>
                         ) : key === 'mine_type' ? (
                             <Select
@@ -83,8 +83,8 @@ const Userinput = ({ onSubmit }) => {
                                 required
                             >
                                 <MenuItem value="" disabled>Select Mine Type</MenuItem>
-                                <MenuItem value="text">open-cast</MenuItem>
-                                <MenuItem value="text">underground</MenuItem>
+                                <MenuItem value="open-cast">open-cast</MenuItem>
+                                <MenuItem value="underground">underground</MenuItem>
                             </Select>
                         ) : (
                             <TextField
