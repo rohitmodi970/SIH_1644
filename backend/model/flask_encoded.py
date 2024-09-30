@@ -2,14 +2,30 @@ import joblib
 from flask import Flask, request, jsonify
 import pandas as pd
 from flask_cors import CORS 
-
+import os
 app = Flask(__name__)
 CORS(app)
 
-pipeline_ch4 = joblib.load(
-    r'D:\\github_coal_mine\\SIH_1644\\backend\\model\\pipeline_ch4_model.pkl')
-pipeline_co2 = joblib.load(
-    r'D:\\github_coal_mine\\SIH_1644\\backend\\model\\pipeline_co2_model.pkl')
+# Get the base directory where the script is located (which is backend/model)
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the correct paths without repeating 'model'
+pipeline_ch4_path = os.path.join(base_dir, 'pipeline_ch4_model.pkl')
+pipeline_co2_path = os.path.join(base_dir, 'pipeline_co2_model.pkl')
+
+# Print to verify paths (optional)
+print("Base directory:", base_dir)
+print("CH4 model path:", pipeline_ch4_path)
+print("CO2 model path:", pipeline_co2_path)
+
+# Load the models
+pipeline_ch4 = joblib.load(pipeline_ch4_path)
+pipeline_co2 = joblib.load(pipeline_co2_path)
+
+# pipeline_ch4 = joblib.load(
+#     r'D:\\github_coal_mine\\SIH_1644\\backend\\model\\pipeline_ch4_model.pkl')
+# pipeline_co2 = joblib.load(
+#     r'D:\\github_coal_mine\\SIH_1644\\backend\\model\\pipeline_co2_model.pkl')
 
 @app.route('/predict', methods=['POST'])
 def predict():
