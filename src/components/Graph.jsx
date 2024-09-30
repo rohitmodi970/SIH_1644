@@ -124,7 +124,7 @@ function Graph() {
           <Line data={lineChartData} options={lineChartOptions} />
         </section>
 
-        <section className="bg-white shadow-md rounded-lg p-6">
+        <section className="bg-white shadow-md rounded-lg p-6 h-[60vh]">
           <h2 className="text-2xl font-semibold text-gray-700 mb-4">Total Greenhouse Gas Emissions</h2>
           <Pie data={pieChartData} options={pieChartOptions} />
         </section>

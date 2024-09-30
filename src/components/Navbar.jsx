@@ -12,7 +12,7 @@ const Navbar = () => {
         }
     };
     return (
-        <nav className='bg-green-500 text-balck sticky top-0 w-100% z-10 '>
+        <nav className='bg-green-500 text-balck sticky top-0 w-100% z-20 '>
             <div className="mycontainer flex justify-between items-center py-5 px-4 h-auto flex-wrap  ">
 
                 <div className="logo font-bold text-2xl text-center flex justify-center items-center">
