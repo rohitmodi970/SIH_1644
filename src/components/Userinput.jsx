@@ -62,18 +62,17 @@ const Userinput = ({ onSubmit }) => {
                             >
                                 <MenuItem value="" disabled>Select Coal Type</MenuItem>
                                 <MenuItem value="Anthracite">Anthracite</MenuItem>
-                                <MenuItem value="Bituminous">Peat</MenuItem>
+                                <MenuItem value="Bituminous A">Bituminous A</MenuItem>
+                                <MenuItem value="Bituminous B">Bituminous B</MenuItem>
+                                <MenuItem value="Bituminous C">Bituminous C</MenuItem>
                                 <MenuItem value="Sub-bituminous A">Sub-bituminous A</MenuItem>
                                 <MenuItem value="Sub-bituminous B">Sub-bituminous B</MenuItem>
                                 <MenuItem value="Sub-bituminous C">Sub-bituminous C</MenuItem>
-                                <MenuItem value="Sub-bituminous A">Bituminous A</MenuItem>
-                                <MenuItem value="Sub-bituminous B">Bituminous B</MenuItem>
-                                <MenuItem value="Sub-bituminous C">Bituminous C</MenuItem>
                                 <MenuItem value="Lignite">Lignite</MenuItem>
+                                <MenuItem value="Lignite">Peat</MenuItem>
                             </Select>
                         ) : key === 'mine_type' ? (
                             <Select
-                                className=''
                                 label="Mine Type"
                                 name="mine_type"
                                 value={formData.mine_type}
@@ -83,16 +82,16 @@ const Userinput = ({ onSubmit }) => {
                                 required
                             >
                                 <MenuItem value="" disabled>Select Mine Type</MenuItem>
-                                <MenuItem value="open-cast">open-cast</MenuItem>
-                                <MenuItem value="underground">underground</MenuItem>
+                                <MenuItem value="open-cast">Open-cast</MenuItem>
+                                <MenuItem value="underground">Underground</MenuItem>
                             </Select>
                         ) : (
                             <TextField
                                 id="outlined-basic"
                                 label={key}
                                 variant="outlined"
-                                type={['coal_type', 'mine_type'].includes(key) ? 'text' : 'number'}
-                                placeholder='Enter'
+                                type="number"
+                                placeholder="Enter"
                                 name={key}
                                 value={formData[key]}
                                 onChange={handleInputChange}
