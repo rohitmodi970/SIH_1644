@@ -23,13 +23,20 @@ const Safety = () => {
     setLoading(true);
     setError('');
 
-    fetch('https://sih-1644-5.onrender.com/monitor', {
+    fetch('http://localhost:3000/monitor', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
     })
+      // fetch('https://sih-1644-5.onrender.com/monitor', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(formData),
+      // })
       .then((response) => response.json())
       .then((result) => {
         setAlerts(result.alerts || []);
@@ -121,21 +128,41 @@ const Safety = () => {
       {error && <p className="text-red-500 text-center mt-4">{error}</p>}
 
       {/* Display the alert cards */}
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
-        {loading ? (
-          <p className="text-center text-gray-500 col-span-full">Loading...</p>
-        ) : (
-          alerts.map((alert, index) => (
-            <Card
-              key={index}
-              title={`Alert ${index + 1}`}
-              content={alert.safety_message}
-              preventiveMeasures={alert.preventive_measures}
-              bgColor={getAlertColorClass(alert.alert_color)}
-            />
-          ))
-        )}
+
+      <div className="flex justify-center gap-10 items-center">
+        {/* Section for safety messages */}
+        <div className="mt-8 flex flex-wrap justify-center  h-full gap-6 w-full max-w-screen-lg mx-5">
+          {loading ? (
+            <p className="text-center text-gray-500 w-full">Loading...</p>
+          ) : (
+            alerts.map((alert, index) => (
+              <Card
+                key={index}
+                title={`Safety Alert ${index + 1}`}
+                content={`${alert.safety_message}`}
+                bgColor={getAlertColorClass(alert.alert_color)}
+              />
+            ))
+          )}
+        </div>
+
+        {/* Section for preventive measures */}
+        <div className="mt-8 flex flex-wrap justify-center gap-6 h-full w-full max-w-screen-lg mx-5">
+          {loading ? (
+            <p className="text-center text-gray-500 w-full">Loading...</p>
+          ) : (
+            alerts.map((alert, index) => (
+              <Card
+                key={index}
+                title={`Preventive Measure ${index + 1}`}
+                content={`${alert.preventive_measures}`} // Display preventive measures here
+                bgColor={getAlertColorClass(alert.alert_color)}
+              />
+            ))
+          )}
+        </div>
       </div>
+
 
       {/* Background Effect */}
       <div className="fixed top-0 left-0 z-[-2] w-full h-full rotate-180 transform bg-green-100 bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>

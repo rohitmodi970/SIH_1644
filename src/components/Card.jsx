@@ -7,21 +7,9 @@ const Card = ({ title, content, preventiveMeasures, bgColor }) => {
     : [];
 
   return (
-    <div className={`flex flex-col ${bgColor} h-auto p-4 w-full rounded-2xl text-center justify-center`}>
-      <h3 className="text-lg font-semibold">{title}</h3>
-      <p className="text-md mt-2" dangerouslySetInnerHTML={{ __html: content }}></p>
-      <p className="text-md mt-2">
-        <strong>Preventive Measures:</strong>
-        <ul className="list-disc mt-2 pl-4 text-left">
-          {formattedPreventiveMeasures.length > 0 ? (
-            formattedPreventiveMeasures.map((measure, idx) => (
-              <li key={idx}>{measure}</li>
-            ))
-          ) : (
-            <li>{preventiveMeasures}</li> 
-          )}
-        </ul>
-      </p>
+    <div className={`flex flex-col ${bgColor} h-auto p-4 w-full rounded-2xl  justify-center transform transition-transform duration-300 hover:scale-105`}>
+      <h3 className="text-2xl font-bold text-center">{title}</h3>
+      <p className="text-lg font-mono mt-2 " dangerouslySetInnerHTML={{ __html: content }}></p>
     </div>
   );
 };
