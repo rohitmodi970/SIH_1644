@@ -36,6 +36,17 @@ const Navbar = () => {
                             onMouseLeave={() => handleHover('icon1', 'mouseleave')}>
                             Home
                         </NavLink>
+                        <lord-icon
+                            id="icon10"
+                            src="https://cdn.lordicon.com/uwinmnkh.json"
+                            trigger="hover">
+                        </lord-icon>
+                        <NavLink to="/dashboard"
+                            className="ml-2 hover:font-extrabold"
+                            onMouseEnter={() => handleHover('icon10', 'mouseenter')}
+                            onMouseLeave={() => handleHover('icon10', 'mouseleave')}>
+                            Dashboard
+                        </NavLink>
 
                         <lord-icon
                             id="icon2"

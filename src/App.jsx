@@ -14,8 +14,9 @@ import Home from './components/Home';
 import Login from './components/Login';
 import MoreFeatures from './components/MoreFeatures';
 import Graph from './components/Graph';
-
+import EmissionsChart from './components/EmissionChart';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
 
 function App() {
 
@@ -87,6 +88,13 @@ function App() {
       <Navbar /> <MoreFeatures />
       </>
     }
+    ,
+    {
+      path: '/dashboard',
+      element: <>
+      <Navbar /> <Dashboard />
+      </>
+    }
   ]);
 
   return (
@@ -96,7 +104,7 @@ function App() {
 
       <Gov_navbar />
       <RouterProvider router={router} />
-
+   
       <div className='bg-slate-300'>
       </div>
       <Assist />

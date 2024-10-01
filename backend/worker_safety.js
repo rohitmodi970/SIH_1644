@@ -7,16 +7,16 @@ app.use(cors())
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the Monitoring API. Use the /monitor endpoint to send data.');
+    res.send('Welcome to the Monitoring API. Use the /monitor endpoint to send data.');
 });
 
 app.post('/monitor', (req, res) => {
-  const data = req.body;
+    const data = req.body;
 
-  const rcmd = data.rcmd || 0;
-  const silica = data.silica || 0;
-  const co_ppm = data.co_ppm || 0;
-  const ch4_lel = data.ch4_lel || 0;
+    const rcmd = data.rcmd || 0;
+    const silica = data.silica || 0;
+    const co_ppm = data.co_ppm || 0;
+    const ch4_lel = data.ch4_lel || 0;
 
   let alerts = [];
   let alertColor = "green"; // Default alert color
@@ -24,7 +24,7 @@ app.post('/monitor', (req, res) => {
   // Check for RCMD alert
   if (rcmd > 1.5) {
     alerts.push({
-      safety_message: "CRITICAL HEALTH ALERT FOR RCMD LEVELS: RCMD levels are above the safety thresholds. Immediate action is required to limit exposure.<br>Risk of Coal Workers' Pneumoconiosis (CWP): Prolonged exposure to high levels of respirable coal mine dust (RCMD) can lead to CWP, commonly known as black lung disease.<br>",
+      safety_message: "CRITICAL HEALTH ALERT FOR RCMD LEVELS:<br>1. RCMD levels are above the safety thresholds. <br>2.Immediate action is required to limit exposure.<br>Risk of Coal Workers'<br> Pneumoconiosis (CWP):<br>1. Prolonged exposure to high levels of respirable coal mine dust (RCMD) can lead to CWP, commonly known as black lung disease.<br>",
       preventive_measures: "Preventive Measure:<br>1. Proper Ventilation: Ensure proper ventilation to reduce dust concentration.<br>2. Water Sprays: Use water sprays to suppress dust at the source.<br>3. Personal Protective Equipment: Provide workers with proper PPE to limit exposure.<br>",
       alert_color: "red"
     });
@@ -75,7 +75,7 @@ app.post('/monitor', (req, res) => {
     alertColor = "red";
   } else if (ch4_lel >= 10 && ch4_lel <= 12) {
     alerts.push({
-      safety_message: "ALERT:<br>1. Methane levels are slightly elevated. <br>2. Monitor closely and ensure proper ventilation<br>",
+      safety_message: "ALERT:<br>1. Methane levels are slightly elevated. <br>2. Monitor closely and ensure proper ventilation<br>2.",
       preventive_measures: "Preventive Measures for Abnormal Methane Levels:<br>1. Increase Ventilation: Ensure proper ventilation to disperse accumulated methane.<br>2. Monitor Closely: Keep a close watch on methane levels.<br>",
       alert_color: "yellow"
     });

@@ -14,7 +14,7 @@ data = {
 
 df = pd.DataFrame(data)
 df['Total GHGs'] = df['CO2'] + df['CH4']*12 + (df['CO2'] + df['CH4']*12)*random.uniform(0.005, 0.009)
-df['other_GHGs'] = df['Total GHGs'] - (df['CO2'] + df['CH4']*12)
+df['other_GHGs'] = df['Total GHGs'] - (df['CO2'] + df['CH4']*15)
 
 def save_line_plot():
     plt.style.use('seaborn-v0_8-dark')

@@ -10,7 +10,7 @@ const Gov_navbar = () => {
                     <li className='flex  gap-12'>
                         <div className="flex ">
 
-                            <img src="public/images/emblem-dark.png" alt="" />
+                            <img src="/images/emblem-dark.png" alt="" />
                             <div className="flex flex-col text-2xl justify-center">
 
                                 <span>कोयला मंत्रालय </span>

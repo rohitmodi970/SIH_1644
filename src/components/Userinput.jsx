@@ -52,14 +52,7 @@ const Userinput = ({ onSubmit }) => {
                     <div key={key} className="mb-4">
                         {key === 'coal_type' ? (
                             <Select
-                                label="Coal Type"
-                                name="coal_type"
-                                value={formData.coal_type}
-                                onChange={handleInputChange}
-                                displayEmpty
-                                fullWidth
-                                required
-                            >
+                                label="Coal Type" name="coal_type" value={formData.coal_type} onChange={handleInputChange} displayEmpty fullWidth required>
                                 <MenuItem value="" disabled>Select Coal Type</MenuItem>
                                 <MenuItem value="Anthracite">Anthracite</MenuItem>
                                 <MenuItem value="Bituminous A">Bituminous A</MenuItem>
@@ -73,31 +66,14 @@ const Userinput = ({ onSubmit }) => {
                             </Select>
                         ) : key === 'mine_type' ? (
                             <Select
-                                label="Mine Type"
-                                name="mine_type"
-                                value={formData.mine_type}
-                                onChange={handleInputChange}
-                                displayEmpty
-                                fullWidth
-                                required
-                            >
+                                label="Mine Type" name="mine_type" value={formData.mine_type} onChange={handleInputChange} displayEmpty fullWidth required>
                                 <MenuItem value="" disabled>Select Mine Type</MenuItem>
                                 <MenuItem value="open-cast">open-cast</MenuItem>
                                 <MenuItem value="underground">Underground</MenuItem>
                             </Select>
                         ) : (
                             <TextField
-                                id="outlined-basic"
-                                label={key}
-                                variant="outlined"
-                                type="number"
-                                placeholder="Enter"
-                                name={key}
-                                value={formData[key]}
-                                onChange={handleInputChange}
-                                required
-                                fullWidth
-                            />
+                                id="outlined-basic" label={key} variant="outlined" type="number" placeholder="Enter" name={key} value={formData[key]} onChange={handleInputChange} required fullWidth/>
                         )}
                     </div>
                 ))}
