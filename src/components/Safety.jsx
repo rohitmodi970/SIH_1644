@@ -23,20 +23,20 @@ const Safety = () => {
     setLoading(true);
     setError('');
 
-    fetch('http://localhost:3000/monitor', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      // fetch('https://sih-1644-5.onrender.com/monitor', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(formData),
-      // })
+    // fetch('http://localhost:3000/monitor', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(formData),
+    // })
+      fetch('https://sih-1644-5.onrender.com/monitor', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
       .then((response) => response.json())
       .then((result) => {
         setAlerts(result.alerts || []);
