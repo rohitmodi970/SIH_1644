@@ -8,7 +8,7 @@ import COLevelsChart from './COLevelsChart';
 import CH4LevelsChart from './CH4LevelsChart';
 import RCMDLevelsChart from './RCMDLevelsChart';
 import SilicaLevelsChart from './SilicaLevelsChart';
-import { monthlyGHGData, totalGHGData ,other_GHGs} from '../data/ghgData';
+import { monthlyGHGData, totalGHGData } from '../data/ghgData';
 
 function Graph() {
   // Example data for Emissions and Savings
@@ -38,22 +38,20 @@ function Graph() {
           <LineChart
             height={400} // Set the desired height here (e.g., 500px)
             data={{
-              month: monthlyGHGData.month,
-              CO2: monthlyGHGData.CO2,
-              CH4: monthlyGHGData.CH4,
+              ...monthlyGHGData,
               TotalGHGs: monthlyGHGData.CO2.map((co2, index) =>
-                co2 + monthlyGHGData.CH4[index] * 12 + (co2 + monthlyGHGData.CH4[index] * 12) * 0.007 // Using average random factor
+                co2 + monthlyGHGData.CH4[index] * 12 + (co2 + monthlyGHGData.CH4[index] * 12) * 0.007 ,// Using average random factor
+              
               ),
             }}
           />
-
         </div>
 
         {/* Total Greenhouse Gas Emissions */}
         <div className="bg-white shadow-lg rounded-lg p-6 transform  transition-transform duration-300 hover:scale-105">
 
 
-          <PieChart data={other_GHGs} />
+          <PieChart data={totalGHGData} />
         </div>
 
         {/* Carbon Emissions and Savings */}

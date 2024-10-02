@@ -45,8 +45,8 @@ const Userinput_emission_control = ({ onSubmit }) => {
     };
 
     return (
-        <div className="flex justify-center items-center py-36">
-            <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-lg w-1/2">
+        <div className="flex justify-center items-center py-36 ">
+            <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center bg-white p-6 rounded-lg shadow-lg w-1/2 transform transition-transform duration-300 hover:scale-105">
                 <h2 className="text-2xl mb-4 font-semibold">Enter Emission Control Data</h2>
 
                 {[
