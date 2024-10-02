@@ -15,6 +15,8 @@
 // };
 
 // export default DynamicCard;
+
+
 import React from 'react';
 
 const DynamicCard = ({ title, data, isHtml = false }) => {

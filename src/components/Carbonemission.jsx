@@ -13,7 +13,6 @@ const Carbonemission = () => {
         try {
             const response = await axios.post('https://sih-1644-model.onrender.com/predict', formData); // Call Flask API
             setData(response.data); // Set the data received from the Flask API
-            console.log(response.data);
             setFormSubmitted(true); // Update state to indicate form has been submitted
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -27,32 +26,36 @@ const Carbonemission = () => {
     };
 
     return (
-        <div className="container mx-auto p-4 rounded-3xl">
+        <div className="container mx-auto p-6 rounded-3xl">
             {/* Conditional rendering: show form or dynamic card */}
             {!formSubmitted ? (
                 <Userinput onSubmit={handleFormSubmit} />
             ) : (
                 <div>
-                    <div className="flex flex-wrap gap-4">
-                        <DynamicCard title="Carbon" data={data?.prediction_co2 || "N/A"} />
-                        <DynamicCard title="Methane" data={data?.prediction_ch4 || "N/A"} />
-                        <DynamicCard title="Total Carbon Footprint" data={data?.total_carbon_footprints?.toFixed(2) || "N/A"} />
-                        <DynamicCard title="Other Gas Emissions" data={data?.other_gases_emissions?.toFixed(2) || "N/A"} />
+                    {/* Display dynamic cards in a responsive grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                        <DynamicCard title="Carbon Emission (kg)" data={data?.prediction_co2?.toFixed(2) || "N/A"} />
+                        <DynamicCard title="Methane Emission (kg)" data={data?.prediction_ch4?.toFixed(2) || "N/A"} />
+                        <DynamicCard title="Total Carbon Footprint (kg)" data={data?.total_carbon_footprints?.toFixed(2) || "N/A"} />
+                        <DynamicCard title="Other Gas Emissions (kg)" data={data?.other_gases_emissions?.toFixed(2) || "N/A"} />
                         <DynamicCard title="Area for Tree Plantation (hectares)" data={data?.trees_area_in_hectares?.toFixed(2) || "N/A"} />
                         <DynamicCard title="Trees Needed" data={data?.trees_needed?.toFixed(0) || "N/A"} />
-                        <DynamicCard title="Impact" data={data?.impact || "N/A"} />
+                        <DynamicCard title="Impact" data={data?.impact || "N/A"} isHtml={true} />
                     </div>
 
-                    <DynamicCard title="Possible Solutions" data={Array.isArray(data?.possible_solutions) ? data.possible_solutions.join(', ') : data?.possible_solutions || "N/A"} />
+                    {/* Display possible solutions */}
+                    <DynamicCard
+                        title="Possible Solutions"
+                        data={Array.isArray(data?.possible_solutions) ? data.possible_solutions.join(', ') : data?.possible_solutions || "N/A"}
+                        isHtml={true}
+                    />
 
                     {/* Button to submit another form */}
-                    <Button
-                        onClick={resetForm}
-                        variant="contained"
-                        color="success"
-                    >
-                        Submit Another
-                    </Button>
+                    <div className="mt-6 flex justify-center">
+                        <Button onClick={resetForm} variant="contained" color="success">
+                            Submit Another
+                        </Button>
+                    </div>
                 </div>
             )}
         </div>
@@ -60,3 +63,4 @@ const Carbonemission = () => {
 };
 
 export default Carbonemission;
+
