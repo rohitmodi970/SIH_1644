@@ -6,8 +6,8 @@ const About = () => {
   }, []);
   return (
     <>
-      <div className="absolute top-0 z-[-2] min-h-full min-w-full rotate-180 transform bg-green-100 bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
-      <div className="bg-gray-100 text-black">
+      <div className="absolute top-0 z-[-2] h-screen w-100% bg-green-100 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+      <div className=" text-black">
 
         <header className="relative">
           <div className="flex justify-center items-center text-center absolute top-0 left-0 right-0 h-20 bg-cover bg-center filter blur-sm"
@@ -16,13 +16,7 @@ const About = () => {
             }}
           ></div>
           <h1 className="relative text-center text-white text-4xl py-10 z-10">About Us</h1>
-          {/* <nav className="bg-black py-3 z-10 relative">
-          <ul className="flex justify-center space-x-8">
-            <li><a href="#" className="text-white hover:text-gray-300">Home</a></li>
-            <li><a href="#" className="text-white hover:text-gray-300">Features</a></li>
-            <li><a href="#" className="text-white hover:text-gray-300">Contact</a></li>
-          </ul>
-        </nav> */}
+          
         </header>
 
         <main className="p-6">

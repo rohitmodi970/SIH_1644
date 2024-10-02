@@ -9,7 +9,7 @@ const MoreFeatures = () => {
   return (
     <>
     <Graph />
-      <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-6">
+      <div className="min-h-screen bg-green-100 bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)] flex flex-col items-center justify-center p-6">
         {/* Title Section */}
         <h1 className="text-5xl font-extrabold text-gray-800 text-center mb-8">
           More Features Coming Soon

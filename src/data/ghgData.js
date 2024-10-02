@@ -32,11 +32,11 @@ totalGHGData.totalGHGs = totalGHGData.CO2 + totalGHGData.CH4 * 12 + (totalGHGDat
 totalGHGData.other_GHGs = totalGHGData.totalGHGs - (totalGHGData.CO2 + totalGHGData.CH4 * 12);
 
 // Log the values for debugging
-console.log('CO2:', totalGHGData.CO2);
-console.log('CH4:', totalGHGData.CH4);
-console.log('Total GHGs:', totalGHGData.totalGHGs);
-console.log('Other GHGs:', totalGHGData.other_GHGs);
-
+// console.log('CO2:', totalGHGData.CO2);
+// console.log('CH4:', totalGHGData.CH4);
+// console.log('Total GHGs:', totalGHGData.totalGHGs);
+// console.log('Other GHGs:', totalGHGData.other_GHGs);
+console.log(`month:${monthlyGHGData.month[0]}`)
 // Set a minimum threshold if the value of other_GHGs is too small
 if (totalGHGData.other_GHGs < 1) {
   totalGHGData.other_GHGs = 1;  // Set a small value for visibility in the chart

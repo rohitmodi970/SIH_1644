@@ -1,70 +1,106 @@
 import React, { useState } from 'react';
-import Userinput_emission_control from './Userinput_emission_control'; // Assuming you have a Userinput_emission_control component
+ 
 
-// Function to handle API submission
 const Emission_control = () => {
-    const [formData, setFormData] = useState({}); // State to hold form data
-    const [formSubmitted, setFormSubmitted] = useState(false); // Track if the form is submitted
-    const [apiResponse, setApiResponse] = useState(null); // State to hold API response data
+  const [formData, setFormData] = useState({
+    carbon_capture: '',
+    solar_panels: '',
+    biofuels: '',
+    methane_capture: '',
+    afforestation: '',
+    modernization: '',
+    energy_efficiency: '',
+    electric_vehicles: ''
+  });
 
-    // Handler to submit the form
-    const handleFormSubmit = (submittedData) => {
-        setFormData(submittedData); // Update state with submitted data
-        setFormSubmitted(true); // Indicate that the form has been submitted
+  const [isSubmit, setisSubmit] = useState(false)
+  const units = [
+    '(in tonnes)', 'a number', 'in litres', 'in kg', 'number of trees', 'projects count', 'initiatives count', 'count'
+  ];
+  
+  const [response, setResponse] = useState(null);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const emissionData = {
+      emission_controls: {
+        carbon_capture: { quantity: parseFloat(formData.carbon_capture) || 0 },
+        solar_panels: { quantity: parseFloat(formData.solar_panels) || 0 },
+        biofuels: { quantity: parseFloat(formData.biofuels) || 0 },
+        methane_capture: { quantity: parseFloat(formData.methane_capture) || 0 },
+        afforestation: { quantity: parseFloat(formData.afforestation) || 0 },
+        modernization: { quantity: parseFloat(formData.modernization) || 0 },
+        energy_efficiency: { quantity: parseFloat(formData.energy_efficiency) || 0 },
+        electric_vehicles: { quantity: parseFloat(formData.electric_vehicles) || 0 }
+      }
     };
 
-    // Function to handle API submission
-    const handleApiSubmit = async () => {
-        try {
-            const response = await fetch('https://sih-1644-model.onrender.com/emission_control', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+    try {
+      const res = await fetch('https://sih-1644-model.onrender.com/emission_control', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(emissionData)
+      });
+      const result = await res.json();
+      setResponse(result);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
 
-            if (response.ok) {
-                const data = await response.json();
-                setApiResponse(data); // Store the API response in state
-                alert('Form submitted successfully');
-            } else {
-                alert('Failed to submit the form. Please try again.');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Error submitting form. Please check your network connection.');
-        }
-    };
+  return (
+    <div className="flex flex-col items-center py-10">
+      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-lg w-1/2">
+        <h2 className="text-2xl mb-4 font-semibold">Enter Emission Control Data</h2>
+        {['carbon_capture', 'solar_panels', 'biofuels', 'methane_capture', 'afforestation', 'modernization', 'energy_efficiency', 'electric_vehicles'].map((field, index) => (
+          <div className="mb-4 w-full" key={field}>
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              {field.replace('_', ' ').toUpperCase()}:
+            </label>
+            <input
+              type="number"
+              name={field}
+              value={formData[field]}
+              onChange={handleChange}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
+              placeholder={`Enter ${field.replace('_', ' ')} ${units[index]}`}
+              required
+            />
+          </div>
+        ))}
+        <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+          Submit
+        </button>
+      </form>
 
-    return (
-        <div>
-            {/* Conditional rendering: show form or submission button */}
-            {!formSubmitted ? (
-                <Userinput_emission_control onSubmit={handleFormSubmit} /> // Pass handleFormSubmit to Userinput_emission_control
-            ) : (
-                <div className="flex justify-center items-center py-6">
-                    <button
-                        onClick={handleApiSubmit}
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Submit to API
-                    </button>
-                </div>
-            )}
-
-            {/* Display API response data if available */}
-            {apiResponse && (
-                <div className="mt-6">
-                    <h2 className="text-xl font-bold">API Response</h2>
-                    <div className="bg-gray-100 p-4 rounded-lg">
-                        <p><strong>Total CO2 Saved (kg):</strong> {apiResponse.total_co2_saved_kg}</p>
-                        <p><strong>Carbon Credits Earned:</strong> {apiResponse.carbon_credits_earned}</p>
-                        <p><strong>Solutions Saved:</strong> {apiResponse.solutions_saved}</p>
-                    </div>
-                </div>
-            )}
+      {response && (
+        <div className="mt-10 p-6 bg-gray-100 rounded-lg shadow-lg w-1/2">
+          <h3 className="text-xl font-semibold mb-4">Emission Control Results:</h3>
+          <p>Total CO2 Saved (kg): {response.total_co2_saved_kg}</p>
+          <p>Carbon Credits Earned: {response.carbon_credits_earned}</p>
+          <div className="mt-4">
+            <h4 className="text-lg font-semibold">Detailed Breakdown:</h4>
+            <ul>
+              {Object.keys(response.solutions_saved).map((control) => (
+                <li key={control} className="mt-2">
+                  {response.solutions_saved[control].description} - CO2 Saved: {response.solutions_saved[control].co2_saved_kg} kg ({response.solutions_saved[control].unit})
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
 export default Emission_control;

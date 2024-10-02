@@ -57,7 +57,7 @@ useEffect(() => {
   
       // Submit the new alert to the server
       try {
-        const response = await fetch('http://localhost:3000/monitor', {
+        const response = await fetch('https://sih-1644-5.onrender.com/monitor', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

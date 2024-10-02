@@ -26,7 +26,7 @@ const Carbonemission = () => {
     };
 
     return (
-        <div className="container mx-auto p-6 rounded-3xl">
+        <div className="container mx-auto p-6 rounded-3xl bg-green-100 bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]">
             {/* Conditional rendering: show form or dynamic card */}
             {!formSubmitted ? (
                 <Userinput onSubmit={handleFormSubmit} />

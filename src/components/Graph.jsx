@@ -19,7 +19,7 @@ function Graph() {
   const carbonCredits = [50, 45, 48, 52, 60, 55, 58, 49, 47, 51, 53, 56];
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 bg-green-100 bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)] min-h-screen">
       {/* Header Section */}
       <header className="mb-8 text-center transform transition-transform duration-300 hover:scale-105">
         <h1 className="text-4xl font-extrabold text-green-700">

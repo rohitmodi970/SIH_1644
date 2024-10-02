@@ -54,11 +54,8 @@ const Userinput = ({ onSubmit }) => {
     };
 
     return (
-        <div className="flex justify-center items-center py-36 bg-gray-50 rounded-2xl">
+        <div className="flex justify-center items-center py-36 bg-green-100 bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)] rounded-2xl">
             <form onSubmit={handleSubmit} className="flex flex-col justify-center items-center bg-white p-8 rounded-xl shadow-lg w-2/3 transform transition-transform duration-300 hover:scale-105">
-                <h2 className="text-3xl mb-6 font-semibold text-gray-800">Enter Coal Mining Data</h2>
-
-                {/* State Select */}
                 <div className="mb-4 w-full">
                     <label className="block text-lg mb-2 text-gray-700">State</label>
                     <select

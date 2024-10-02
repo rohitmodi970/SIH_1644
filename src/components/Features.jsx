@@ -37,20 +37,20 @@ const Features = () => {
                         </NavLink>
                     </div>
                     <div className="w-full h-auto bg-white rounded-2xl flex flex-col  items-center text-center gap-4">
-                        <img className='w-60 top-0 h-80' src="https://img.freepik.com/premium-vector/graph-with-decrease-report-diagram-with-recession-bankruptcy-progresstration_186380-1854.jpg?semt=ais_hybrid" alt="" />
+                        <img className='w-60 top-0 h-80 py-2 rounded-xl' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5XgCVc338Oc4nbO0ZCXUCGlSoh9uwKT6f8w&usqp=CAU" alt="" />
                         <h1 className='font-bold text-green-600 text-2xl'>Carbon emission control</h1>
-                        <p className='font-sans text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos dicta laborum labore ad autem ullam asperiores tenetur dolorum numquam veritatis?</p>
+                        <p className='font-sans text-xl'>Discover our advanced emission control form, enabling coal mining industries to submit critical data. Gain insights into CO2 savings and track your sustainability efforts effectively.</p>
                         <NavLink
                         className='bg-green-700 text-white text-xl p-2 px-7 relative bottom-2 rounded-full hover:font-medium'
                             to="/emissioncontrol">
-                            More
+                            Calculate
                         </NavLink>
                     </div>
                 </div>
                     <div className="w-[50vw] h-auto bg-white rounded-2xl flex flex-col  items-center text-center gap-4">
                         <img className='w-60 top-0 h-80' src="https://img.freepik.com/premium-vector/graph-with-decrease-report-diagram-with-recession-bankruptcy-progresstration_186380-1854.jpg?semt=ais_hybrid" alt="" />
                         <h1 className='font-bold text-green-600 text-2xl'>More Features & Services</h1>
-                        <p className='font-sans text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos dicta laborum labore ad autem ullam asperiores tenetur dolorum numquam veritatis?</p>
+                        <p className='font-sans text-xl'>Stay tuned for advanced LSTM predictions, real-time worker health monitoring, VR safety training, and gamification—innovative solutions coming soon for sustainable coal mining.</p>
                         <NavLink
                         className='bg-green-700 text-white text-xl p-2 px-7 relative bottom-2 rounded-full hover:font-medium'
                             to="/moreFeatures">
