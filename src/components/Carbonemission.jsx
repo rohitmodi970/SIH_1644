@@ -11,6 +11,7 @@ const Carbonemission = () => {
     // Function to handle form submission and API call
     const handleFormSubmit = async (formData) => {
         try {
+            // const response = await axios.post('https://sih-1644-model.onrender.com/predict', formData); // Call Flask API
             const response = await axios.post('https://sih-1644-model.onrender.com/predict', formData); // Call Flask API
             setData(response.data); // Set the data received from the Flask API
             setFormSubmitted(true); // Update state to indicate form has been submitted

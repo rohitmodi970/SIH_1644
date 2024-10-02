@@ -14,7 +14,7 @@ export const monthlyGHGData = {
     CH4: 276,  // Sum of CH4 emissions multiplied by 12 (assuming CH4 is in percentage)
     other_GHGs:  // Calculate based on your logic
       monthlyGHGData.CO2.reduce((a, b) => a + b, 0) +
-      monthlyGHGData.CH4.reduce((a, b) => a + b * 12, 0) *
+      monthlyGHGData.CH4.reduce((a, b) => a + b, 0) *
         (0.005 + 0.009) / 2, // Averaging the random factor
   };
   

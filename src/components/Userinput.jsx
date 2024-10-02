@@ -113,9 +113,9 @@ const Userinput = ({ onSubmit }) => {
                             required
                         >
                             <option value="" disabled>Select Mine Type</option>
-                            <option value="open-cast">Open-Cast</option>
-                            <option value="underground">Underground</option>
-                            <option value="mixed">Mixed</option>
+                            <option value="open-cast">open-Cast</option>
+                            <option value="underground">underground</option>
+                            <option value="mixed">mixed</option>
                         </select>
                     </div>
 
