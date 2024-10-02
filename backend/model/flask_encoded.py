@@ -413,7 +413,7 @@ def predict():
         'trees_area_in_hectares': trees_area_in_hectares,
         'recommended_tree_plantation_areas': recommended_tree_plantation_areas,
         'total_carbon_footprints': total_carbon_footprints,
-        'other_gases_emissions': other_gases_emissions
+        'other_gases_emissions': (other_gases_emissions)/100
     })
 
 
