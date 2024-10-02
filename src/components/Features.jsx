@@ -36,7 +36,18 @@ const Features = () => {
                             Calculate
                         </NavLink>
                     </div>
-                    <div className="w-auto h-auto bg-white rounded-2xl flex flex-col  items-center text-center gap-4">
+                    <div className="w-full h-auto bg-white rounded-2xl flex flex-col  items-center text-center gap-4">
+                        <img className='w-60 top-0 h-80' src="https://img.freepik.com/premium-vector/graph-with-decrease-report-diagram-with-recession-bankruptcy-progresstration_186380-1854.jpg?semt=ais_hybrid" alt="" />
+                        <h1 className='font-bold text-green-600 text-2xl'>Carbon emission control</h1>
+                        <p className='font-sans text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos dicta laborum labore ad autem ullam asperiores tenetur dolorum numquam veritatis?</p>
+                        <NavLink
+                        className='bg-green-700 text-white text-xl p-2 px-7 relative bottom-2 rounded-full hover:font-medium'
+                            to="/emissioncontrol">
+                            More
+                        </NavLink>
+                    </div>
+                </div>
+                    <div className="w-[50vw] h-auto bg-white rounded-2xl flex flex-col  items-center text-center gap-4">
                         <img className='w-60 top-0 h-80' src="https://img.freepik.com/premium-vector/graph-with-decrease-report-diagram-with-recession-bankruptcy-progresstration_186380-1854.jpg?semt=ais_hybrid" alt="" />
                         <h1 className='font-bold text-green-600 text-2xl'>More Features & Services</h1>
                         <p className='font-sans text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos dicta laborum labore ad autem ullam asperiores tenetur dolorum numquam veritatis?</p>
@@ -46,7 +57,6 @@ const Features = () => {
                             More
                         </NavLink>
                     </div>
-                </div>
 
             </div>
             <div className="fixed top-0 left-0 z-[-2] w-full h-full rotate-180 transform bg-green-100 bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]">

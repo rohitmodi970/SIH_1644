@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Userinput from './Userinput';
 import DynamicCard from './DynamicCard';
@@ -28,56 +27,35 @@ const Carbonemission = () => {
     };
 
     return (
-        <>
-            <div className="container mx-auto p-4 bg-slate-200 rounded-3xl">
-                {/* Conditional rendering: show form or dynamic card */}
-                {!formSubmitted ? (
-                    <Userinput onSubmit={handleFormSubmit} />
-                ) : (
-                    <div className=''>
-                        {/* Dynamic Cards */}
-                        <div className="flex ">
-                            <div className="w-full ">
-                                <DynamicCard title="Carbon" data={data.prediction_co2} />
-                            </div>
-                            <div className="w-full">
-                                <DynamicCard title="Methane" data={data.prediction_ch4} />
-                            </div>
-                            <div className="w-full">
-                                <DynamicCard title="total Carbon Footprint" data={(data.total_carbon_footprints).toFixed(2)} />
-                            </div>
-                        </div>
-                            <div className="flex ">
-                            <div className="w-full">
-
-                            <DynamicCard title="Other gas emission" data={(data.other_gases_emissions).toFixed(2)} />
-                            </div>
-                            <div className="w-full">
-                            <DynamicCard title="Area required in hectare for tree plantation" data={(data.trees_area_in_hectares).toFixed(2)} />
-                            </div>
-                            <div className="w-full">
-                            <DynamicCard title="Tree Needed" data={(data.trees_needed).toFixed(0)} />
-
-                            </div>
-                            </div>
-                        <div className=" ">
-
-
-                            <DynamicCard title="Impact" data={data.impact} />
-                            <DynamicCard title="Possible solutions" data={data.possible_solutions} />
-
-                        </div>
-                        {/* Button to submit another form */}
-                        <Button
-                            onClick={resetForm}
-                            variant="contained" color="success"
-                        >
-                            Submit Another
-                        </Button>
+        <div className="container mx-auto p-4 rounded-3xl">
+            {/* Conditional rendering: show form or dynamic card */}
+            {!formSubmitted ? (
+                <Userinput onSubmit={handleFormSubmit} />
+            ) : (
+                <div>
+                    <div className="flex flex-wrap gap-4">
+                        <DynamicCard title="Carbon" data={data?.prediction_co2 || "N/A"} />
+                        <DynamicCard title="Methane" data={data?.prediction_ch4 || "N/A"} />
+                        <DynamicCard title="Total Carbon Footprint" data={data?.total_carbon_footprints?.toFixed(2) || "N/A"} />
+                        <DynamicCard title="Other Gas Emissions" data={data?.other_gases_emissions?.toFixed(2) || "N/A"} />
+                        <DynamicCard title="Area for Tree Plantation (hectares)" data={data?.trees_area_in_hectares?.toFixed(2) || "N/A"} />
+                        <DynamicCard title="Trees Needed" data={data?.trees_needed?.toFixed(0) || "N/A"} />
+                        <DynamicCard title="Impact" data={data?.impact || "N/A"} />
                     </div>
-                )}
-            </div>
-        </>
+
+                    <DynamicCard title="Possible Solutions" data={Array.isArray(data?.possible_solutions) ? data.possible_solutions.join(', ') : data?.possible_solutions || "N/A"} />
+
+                    {/* Button to submit another form */}
+                    <Button
+                        onClick={resetForm}
+                        variant="contained"
+                        color="success"
+                    >
+                        Submit Another
+                    </Button>
+                </div>
+            )}
+        </div>
     );
 };
 

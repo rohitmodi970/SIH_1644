@@ -17,6 +17,7 @@ import Graph from './components/Graph';
 import EmissionsChart from './components/EmissionChart';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
+import Emission_control from './components/Emission_control';
 
 function App() {
 
@@ -93,6 +94,13 @@ function App() {
       path: '/dashboard',
       element: <>
       <Navbar /> <Dashboard />
+      </>
+    }
+    ,
+    {
+      path: '/emissioncontrol',
+      element: <>
+      <Navbar /> <Emission_control />
       </>
     }
   ]);
