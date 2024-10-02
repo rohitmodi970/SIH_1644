@@ -27,6 +27,7 @@ const totalGHGData = {
               (monthlyGHGData.CH4.reduce((sum, value) => sum + value, 0) * 12) *
               (0.005 + 0.009) / 2,
 };
-
+export const other_GHGs = monthlyGHGData.CO2.reduce((sum, value) => sum + value, 0) +
+                   (monthlyGHGData.CH4.reduce((sum, value) => sum + value, 0) * 12);
 // Print or use the totalGHGData
 console.log(totalGHGData);

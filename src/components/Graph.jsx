@@ -8,7 +8,7 @@ import COLevelsChart from './COLevelsChart';
 import CH4LevelsChart from './CH4LevelsChart';
 import RCMDLevelsChart from './RCMDLevelsChart';
 import SilicaLevelsChart from './SilicaLevelsChart';
-import { monthlyGHGData, totalGHGData } from '../data/ghgData';
+import { monthlyGHGData, totalGHGData ,other_GHGs} from '../data/ghgData';
 
 function Graph() {
   // Example data for Emissions and Savings
@@ -53,7 +53,7 @@ function Graph() {
         <div className="bg-white shadow-lg rounded-lg p-6 transform  transition-transform duration-300 hover:scale-105">
 
 
-          <PieChart data={totalGHGData} />
+          <PieChart data={other_GHGs} />
         </div>
 
         {/* Carbon Emissions and Savings */}
