@@ -1,5 +1,6 @@
 // src/components/PieChart.js
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Pie } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -12,16 +13,16 @@ import {
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
 const PieChart = ({ data }) => {
+  // Validate data to prevent errors
+  const isValidData = data && typeof data.CO2 === 'number' && typeof data.CH4 === 'number' && typeof data.other_GHGs === 'number';
+  
+  // Set default values if data is invalid
   const chartData = {
     labels: ['CO2', 'CH4', 'Other GHGs'],
     datasets: [
       {
         label: 'Total GHG Emissions',
-        data: [
-          data.CO2,
-          data.CH4,
-          data.other_GHGs,
-        ],
+        data: isValidData ? [data.CO2, data.CH4, data.other_GHGs] : [0, 0, 0],
         backgroundColor: ['#4e79a7', '#f28e2b', '#e15759'],
         hoverOffset: 4,
       },
@@ -44,6 +45,15 @@ const PieChart = ({ data }) => {
   };
 
   return <Pie data={chartData} options={options} />;
+};
+
+// PropTypes for better prop validation
+PieChart.propTypes = {
+  data: PropTypes.shape({
+    CO2: PropTypes.number.isRequired,
+    CH4: PropTypes.number.isRequired,
+    other_GHGs: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default PieChart;

@@ -21,10 +21,11 @@ const data = {
 // For JavaScript, you might use libraries like Danfo.js or similar for DataFrame functionality
 
 const totalGHGData = {
-  CO2: monthlyGHGData.CO2.reduce((a, b) => a + b, 0), // Sum of CO2 emissions
-  CH4: monthlyGHGData.CH4.reduce((a, b) => a + b, 0) * 12, // Sum of CH4 emissions multiplied by 12
-  other_GHGs: monthlyGHGData.CO2.reduce((a, b) => a + b, 0) +
-              (monthlyGHGData.CH4.reduce((a, b) => a + b, 0) * 12) * ((0.005 + 0.009) / 2) // Average random factor
+  CO2: monthlyGHGData.CO2.reduce((sum, value) => sum + value, 0),
+  CH4: monthlyGHGData.CH4.reduce((sum, value) => sum + value, 0) * 12,
+  other_GHGs: monthlyGHGData.CO2.reduce((sum, value) => sum + value, 0) +
+              (monthlyGHGData.CH4.reduce((sum, value) => sum + value, 0) * 12) *
+              (0.005 + 0.009) / 2,
 };
 
 // Print or use the totalGHGData

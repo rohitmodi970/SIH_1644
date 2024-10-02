@@ -38,13 +38,15 @@ function Graph() {
           <LineChart
             height={400} // Set the desired height here (e.g., 500px)
             data={{
-              ...monthlyGHGData,
+              month: monthlyGHGData.month,
+              CO2: monthlyGHGData.CO2,
+              CH4: monthlyGHGData.CH4,
               TotalGHGs: monthlyGHGData.CO2.map((co2, index) =>
-                co2 + monthlyGHGData.CH4[index] * 12 + (co2 + monthlyGHGData.CH4[index] * 12) * 0.007 ,// Using average random factor
-              
+                co2 + monthlyGHGData.CH4[index] * 12 + (co2 + monthlyGHGData.CH4[index] * 12) * 0.007 // Using average random factor
               ),
             }}
           />
+
         </div>
 
         {/* Total Greenhouse Gas Emissions */}
