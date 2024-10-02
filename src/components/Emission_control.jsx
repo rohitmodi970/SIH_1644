@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
-import Userinput_emission_control from './Userinput_emission_control';  // Assuming you have a Userinput_emission_control component
-
+import Userinput_emission_control from './Userinput_emission_control'; // Assuming you have a Userinput_emission_control component
 
 // Function to handle API submission
-const Emission_control = ({ formData }) => {
-    const [formSubmitted, setFormSubmitted] = useState(false);  // Moved inside the component
+const Emission_control = () => {
+    const [formData, setFormData] = useState({}); // State to hold form data
+    const [formSubmitted, setFormSubmitted] = useState(false); // Track if the form is submitted
+    const [apiResponse, setApiResponse] = useState(null); // State to hold API response data
 
+    // Handler to submit the form
+    const handleFormSubmit = (submittedData) => {
+        setFormData(submittedData); // Update state with submitted data
+        setFormSubmitted(true); // Indicate that the form has been submitted
+    };
+
+    // Function to handle API submission
     const handleApiSubmit = async () => {
         try {
             const response = await fetch('https://sih-1644-model.onrender.com/emission_control', {
@@ -18,7 +26,8 @@ const Emission_control = ({ formData }) => {
 
             if (response.ok) {
                 const data = await response.json();
-                alert('Form submitted successfully: ' + JSON.stringify(data));
+                setApiResponse(data); // Store the API response in state
+                alert('Form submitted successfully');
             } else {
                 alert('Failed to submit the form. Please try again.');
             }
@@ -28,17 +37,11 @@ const Emission_control = ({ formData }) => {
         }
     };
 
-    // Handler to submit the form
-    const handleFormSubmit = (submittedData) => {
-        setFormSubmitted(true);
-        // You can also set the formData if necessary, e.g., setFormData(submittedData);
-    };
-
     return (
         <div>
             {/* Conditional rendering: show form or submission button */}
             {!formSubmitted ? (
-                <Userinput_emission_control onSubmit={handleFormSubmit} />  // Pass handleFormSubmit to Userinput_emission_control
+                <Userinput_emission_control onSubmit={handleFormSubmit} /> // Pass handleFormSubmit to Userinput_emission_control
             ) : (
                 <div className="flex justify-center items-center py-6">
                     <button
@@ -46,6 +49,18 @@ const Emission_control = ({ formData }) => {
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         Submit to API
                     </button>
+                </div>
+            )}
+
+            {/* Display API response data if available */}
+            {apiResponse && (
+                <div className="mt-6">
+                    <h2 className="text-xl font-bold">API Response</h2>
+                    <div className="bg-gray-100 p-4 rounded-lg">
+                        <p><strong>Total CO2 Saved (kg):</strong> {apiResponse.total_co2_saved_kg}</p>
+                        <p><strong>Carbon Credits Earned:</strong> {apiResponse.carbon_credits_earned}</p>
+                        <p><strong>Solutions Saved:</strong> {apiResponse.solutions_saved}</p>
+                    </div>
                 </div>
             )}
         </div>

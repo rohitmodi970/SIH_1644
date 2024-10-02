@@ -11,7 +11,6 @@ const Carbonemission = () => {
     // Function to handle form submission and API call
     const handleFormSubmit = async (formData) => {
         try {
-            // const response = await axios.post('https://sih-1644-model.onrender.com/predict', formData); // Call Flask API
             const response = await axios.post('https://sih-1644-model.onrender.com/predict', formData); // Call Flask API
             setData(response.data); // Set the data received from the Flask API
             setFormSubmitted(true); // Update state to indicate form has been submitted
@@ -41,6 +40,11 @@ const Carbonemission = () => {
                         <DynamicCard title="Other Gas Emissions (kg)" data={data?.other_gases_emissions?.toFixed(2) || "N/A"} />
                         <DynamicCard title="Area for Tree Plantation (hectares)" data={data?.trees_area_in_hectares?.toFixed(2) || "N/A"} />
                         <DynamicCard title="Trees Needed" data={data?.trees_needed?.toFixed(0) || "N/A"} />
+                        <DynamicCard title="Trees Needed After Absorption" data={data?.trees_needed_after_absorption?.toFixed(0) || "N/A"} />
+                        <DynamicCard title="Area Covered After Absorption (hectares)" data={data?.area_covered_after_absorption?.toFixed(2) || "N/A"} />
+                        <DynamicCard title="Region CO₂ Absorbed (kg)" data={data?.region_co2_absorbed?.toFixed(2) || "N/A"} />
+                        <DynamicCard title="Excess Emissions (kg)" data={data?.excess_emissions?.toFixed(2) || "N/A"} />
+                        <DynamicCard title="Emissions Alert" data={data?.emmision_alert || "N/A"} />
                         <DynamicCard title="Impact" data={data?.impact || "N/A"} isHtml={true} />
                     </div>
 
@@ -48,6 +52,13 @@ const Carbonemission = () => {
                     <DynamicCard
                         title="Possible Solutions"
                         data={Array.isArray(data?.possible_solutions) ? data.possible_solutions.join(', ') : data?.possible_solutions || "N/A"}
+                        isHtml={true}
+                    />
+
+                    {/* Display recommendations if available */}
+                    <DynamicCard
+                        title="Recommendations"
+                        data={Array.isArray(data?.recommendations) ? data.recommendations.join(', ') : data?.recommendations || "N/A"}
                         isHtml={true}
                     />
 
@@ -64,4 +75,3 @@ const Carbonemission = () => {
 };
 
 export default Carbonemission;
-
