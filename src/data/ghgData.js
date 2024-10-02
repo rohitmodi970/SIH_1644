@@ -1,5 +1,4 @@
-// Assuming you're using a JavaScript environment (for example, with Node.js)
-// Update the data to the specified structure
+// Monthly GHG data
 export const monthlyGHGData = {
   month: [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -9,25 +8,29 @@ export const monthlyGHGData = {
   CH4: [20, 22, 21, 25, 23, 24, 20, 20, 23, 28, 30, 24],
 };
 
-// New data structure for DataFrame
+// New data structure for DataFrame (pseudo-code)
+// If using JavaScript, consider libraries like Danfo.js for DataFrame functionality
 const data = {
   month: monthlyGHGData.month,
   CO2: monthlyGHGData.CO2,
   CH4: monthlyGHGData.CH4,
 };
 
-// Simulate the DataFrame calculation (this part is pseudo-code)
-// In a real application, use the actual pandas DataFrame in Python
-// For JavaScript, you might use libraries like Danfo.js or similar for DataFrame functionality
-
+// Calculate total GHG data
 const totalGHGData = {
   CO2: monthlyGHGData.CO2.reduce((sum, value) => sum + value, 0),
   CH4: monthlyGHGData.CH4.reduce((sum, value) => sum + value, 0) * 12,
-  other_GHGs: monthlyGHGData.CO2.reduce((sum, value) => sum + value, 0) +
-              (monthlyGHGData.CH4.reduce((sum, value) => sum + value, 0) * 12) *
-              (0.005 + 0.009) / 2,
+  // Simplifying other_GHGs calculation, assuming it represents emissions not captured by CO2 and CH4
+  other_GHGs: 0, // Replace with a calculation if necessary
 };
-export const other_GHGs = monthlyGHGData.CO2.reduce((sum, value) => sum + value, 0) +
-                   (monthlyGHGData.CH4.reduce((sum, value) => sum + value, 0) * 12);
+const otherGHGValues = {
+  CO2: 0, // Replace with your actual CO2 value
+  CH4: 0, // Replace with your actual CH4 value
+  other_GHGs: other_GHGs, // Your calculated value for other GHGs
+};
+// Example estimate for other_GHGs (10% of total GHG emissions)
+const totalEmissions = totalGHGData.CO2 + totalGHGData.CH4;
+totalGHGData.other_GHGs = totalEmissions * 0.10; // For example, 10% of total emissions
+
 // Print or use the totalGHGData
 console.log(totalGHGData);

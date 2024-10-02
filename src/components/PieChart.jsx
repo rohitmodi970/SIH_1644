@@ -44,7 +44,7 @@ const PieChart = ({ data }) => {
     },
   };
 
-  return <Pie data={chartData} options={options} />;
+  return <Pie data={chartData} options={options} aria-label="Total Greenhouse Gas Emissions" />;
 };
 
 // PropTypes for better prop validation
@@ -54,6 +54,15 @@ PieChart.propTypes = {
     CH4: PropTypes.number.isRequired,
     other_GHGs: PropTypes.number.isRequired,
   }).isRequired,
+};
+
+// Default props for fallback values
+PieChart.defaultProps = {
+  data: {
+    CO2: 0,
+    CH4: 0,
+    other_GHGs: 0,
+  },
 };
 
 export default PieChart;
